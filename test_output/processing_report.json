@@ -1,0 +1,809 @@
+{
+  "report_generated_at": "2025-07-27T23:57:58.943440",
+  "summary_statistics": {
+    "processing_timestamp": "2025-07-27T23:57:58.898393",
+    "total_records": 503,
+    "unique_skus": 501,
+    "locations": [
+      "WH1",
+      "WH2",
+      "WH3"
+    ],
+    "total_inventory_value": 2987360.28,
+    "average_unit_cost": 25.989801192842943,
+    "stock_status_breakdown": {
+      "Normal": 426,
+      "Low Stock": 59,
+      "Out of Stock": 11,
+      "Critical": 7
+    },
+    "top_5_high_value_items": [
+      {
+        "SKU": "SKU00493",
+        "Description": "People Charge",
+        "TotalValue": 23755.62
+      },
+      {
+        "SKU": "SKU00380",
+        "Description": "Front Away",
+        "TotalValue": 23137.440000000002
+      },
+      {
+        "SKU": "SKU00031",
+        "Description": "Wrong Mind",
+        "TotalValue": 23001.16
+      },
+      {
+        "SKU": "SKU00461",
+        "Description": "Life Hair",
+        "TotalValue": 22795.829999999998
+      },
+      {
+        "SKU": "SKU00179",
+        "Description": "Add Indicate",
+        "TotalValue": 22553.12
+      }
+    ],
+    "processing_stats": {
+      "records_processed": 503,
+      "duplicates_removed": 0,
+      "invalid_records": 0,
+      "negative_quantities_fixed": "9",
+      "low_stock_items": "59",
+      "critical_stock_items": "18"
+    }
+  },
+  "business_rule_violations": [
+    {
+      "SKU": "SKU00003",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (66) > 50% of max quantity (108)"
+    },
+    {
+      "SKU": "SKU00011",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (82) > 50% of max quantity (78)"
+    },
+    {
+      "SKU": "SKU00014",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (35) > 50% of max quantity (40)"
+    },
+    {
+      "SKU": "SKU00017",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (50) > 50% of max quantity (74)"
+    },
+    {
+      "SKU": "SKU00018",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (21) > 50% of max quantity (22)"
+    },
+    {
+      "SKU": "SKU00021",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (86) > 50% of max quantity (86)"
+    },
+    {
+      "SKU": "SKU00024",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (77) > 50% of max quantity (132)"
+    },
+    {
+      "SKU": "SKU00027",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (90) > 50% of max quantity (10)"
+    },
+    {
+      "SKU": "SKU00029",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (35) > 50% of max quantity (14)"
+    },
+    {
+      "SKU": "SKU00032",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (82) > 50% of max quantity (120)"
+    },
+    {
+      "SKU": "SKU00036",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (92) > 50% of max quantity (176)"
+    },
+    {
+      "SKU": "SKU00042",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (89) > 50% of max quantity (74)"
+    },
+    {
+      "SKU": "SKU00043",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (92) > 50% of max quantity (7)"
+    },
+    {
+      "SKU": "SKU00045",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (45) > 50% of max quantity (0)"
+    },
+    {
+      "SKU": "SKU00053",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (71) > 50% of max quantity (55)"
+    },
+    {
+      "SKU": "SKU00054",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (66) > 50% of max quantity (17)"
+    },
+    {
+      "SKU": "SKU00056",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (51) > 50% of max quantity (0)"
+    },
+    {
+      "SKU": "SKU00059",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (90) > 50% of max quantity (29)"
+    },
+    {
+      "SKU": "SKU00060",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (69) > 50% of max quantity (6)"
+    },
+    {
+      "SKU": "SKU00061",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (80) > 50% of max quantity (0)"
+    },
+    {
+      "SKU": "SKU00067",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (50) > 50% of max quantity (74)"
+    },
+    {
+      "SKU": "SKU00068",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (28) > 50% of max quantity (0)"
+    },
+    {
+      "SKU": "SKU00069",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (65) > 50% of max quantity (124)"
+    },
+    {
+      "SKU": "SKU00074",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (30) > 50% of max quantity (38)"
+    },
+    {
+      "SKU": "SKU00075",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (32) > 50% of max quantity (1)"
+    },
+    {
+      "SKU": "SKU00080",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (47) > 50% of max quantity (13)"
+    },
+    {
+      "SKU": "SKU00081",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (37) > 50% of max quantity (33)"
+    },
+    {
+      "SKU": "SKU00085",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (99) > 50% of max quantity (46)"
+    },
+    {
+      "SKU": "SKU00086",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (99) > 50% of max quantity (10)"
+    },
+    {
+      "SKU": "SKU00087",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (27) > 50% of max quantity (35)"
+    },
+    {
+      "SKU": "SKU00096",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (41) > 50% of max quantity (15)"
+    },
+    {
+      "SKU": "SKU00102",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (48) > 50% of max quantity (18)"
+    },
+    {
+      "SKU": "SKU00108",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (42) > 50% of max quantity (6)"
+    },
+    {
+      "SKU": "SKU00109",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (73) > 50% of max quantity (5)"
+    },
+    {
+      "SKU": "SKU00119",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (92) > 50% of max quantity (43)"
+    },
+    {
+      "SKU": "SKU00122",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (60) > 50% of max quantity (102)"
+    },
+    {
+      "SKU": "SKU00130",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (93) > 50% of max quantity (126)"
+    },
+    {
+      "SKU": "SKU00131",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (87) > 50% of max quantity (104)"
+    },
+    {
+      "SKU": "SKU00133",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (70) > 50% of max quantity (114)"
+    },
+    {
+      "SKU": "SKU00137",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (23) > 50% of max quantity (6)"
+    },
+    {
+      "SKU": "SKU00141",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (35) > 50% of max quantity (61)"
+    },
+    {
+      "SKU": "SKU00144",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (49) > 50% of max quantity (32)"
+    },
+    {
+      "SKU": "SKU00156",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (90) > 50% of max quantity (97)"
+    },
+    {
+      "SKU": "SKU00160",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (92) > 50% of max quantity (88)"
+    },
+    {
+      "SKU": "SKU00167",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (100) > 50% of max quantity (15)"
+    },
+    {
+      "SKU": "SKU00171",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (97) > 50% of max quantity (0)"
+    },
+    {
+      "SKU": "SKU00177",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (88) > 50% of max quantity (143)"
+    },
+    {
+      "SKU": "SKU00180",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (68) > 50% of max quantity (6)"
+    },
+    {
+      "SKU": "SKU00182",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (93) > 50% of max quantity (142)"
+    },
+    {
+      "SKU": "SKU00191",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (73) > 50% of max quantity (89)"
+    },
+    {
+      "SKU": "SKU00195",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (32) > 50% of max quantity (0)"
+    },
+    {
+      "SKU": "SKU00200",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (67) > 50% of max quantity (53)"
+    },
+    {
+      "SKU": "SKU00203",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (36) > 50% of max quantity (67)"
+    },
+    {
+      "SKU": "SKU00204",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (93) > 50% of max quantity (22)"
+    },
+    {
+      "SKU": "SKU00213",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (96) > 50% of max quantity (101)"
+    },
+    {
+      "SKU": "SKU00216",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (43) > 50% of max quantity (79)"
+    },
+    {
+      "SKU": "SKU00217",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (54) > 50% of max quantity (80)"
+    },
+    {
+      "SKU": "SKU00218",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (20) > 50% of max quantity (25)"
+    },
+    {
+      "SKU": "SKU00219",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (48) > 50% of max quantity (15)"
+    },
+    {
+      "SKU": "SKU00222",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (55) > 50% of max quantity (0)"
+    },
+    {
+      "SKU": "SKU00229",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (81) > 50% of max quantity (0)"
+    },
+    {
+      "SKU": "SKU00233",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (42) > 50% of max quantity (17)"
+    },
+    {
+      "SKU": "SKU00239",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (51) > 50% of max quantity (59)"
+    },
+    {
+      "SKU": "SKU00241",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (34) > 50% of max quantity (50)"
+    },
+    {
+      "SKU": "SKU00243",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (56) > 50% of max quantity (30)"
+    },
+    {
+      "SKU": "SKU00249",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (20) > 50% of max quantity (2)"
+    },
+    {
+      "SKU": "SKU00250",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (56) > 50% of max quantity (100)"
+    },
+    {
+      "SKU": "SKU00251",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (75) > 50% of max quantity (70)"
+    },
+    {
+      "SKU": "SKU00254",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (97) > 50% of max quantity (44)"
+    },
+    {
+      "SKU": "SKU00259",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (43) > 50% of max quantity (1)"
+    },
+    {
+      "SKU": "SKU00270",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (49) > 50% of max quantity (62)"
+    },
+    {
+      "SKU": "SKU00273",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (76) > 50% of max quantity (33)"
+    },
+    {
+      "SKU": "SKU00275",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (69) > 50% of max quantity (36)"
+    },
+    {
+      "SKU": "SKU00276",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (73) > 50% of max quantity (14)"
+    },
+    {
+      "SKU": "SKU00278",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (77) > 50% of max quantity (132)"
+    },
+    {
+      "SKU": "SKU00280",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (91) > 50% of max quantity (150)"
+    },
+    {
+      "SKU": "SKU00281",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (32) > 50% of max quantity (8)"
+    },
+    {
+      "SKU": "SKU00284",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (61) > 50% of max quantity (56)"
+    },
+    {
+      "SKU": "SKU00285",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (27) > 50% of max quantity (12)"
+    },
+    {
+      "SKU": "SKU00293",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (99) > 50% of max quantity (115)"
+    },
+    {
+      "SKU": "SKU00298",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (57) > 50% of max quantity (36)"
+    },
+    {
+      "SKU": "SKU00308",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (45) > 50% of max quantity (2)"
+    },
+    {
+      "SKU": "SKU00315",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (39) > 50% of max quantity (39)"
+    },
+    {
+      "SKU": "SKU00316",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (64) > 50% of max quantity (93)"
+    },
+    {
+      "SKU": "SKU00317",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (83) > 50% of max quantity (32)"
+    },
+    {
+      "SKU": "SKU00318",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (74) > 50% of max quantity (77)"
+    },
+    {
+      "SKU": "SKU00319",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (95) > 50% of max quantity (98)"
+    },
+    {
+      "SKU": "SKU00321",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (82) > 50% of max quantity (19)"
+    },
+    {
+      "SKU": "SKU00325",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (33) > 50% of max quantity (7)"
+    },
+    {
+      "SKU": "SKU00329",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (61) > 50% of max quantity (95)"
+    },
+    {
+      "SKU": "SKU00332",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (70) > 50% of max quantity (74)"
+    },
+    {
+      "SKU": "SKU00336",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (94) > 50% of max quantity (11)"
+    },
+    {
+      "SKU": "SKU00343",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (97) > 50% of max quantity (0)"
+    },
+    {
+      "SKU": "SKU00345",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (85) > 50% of max quantity (1)"
+    },
+    {
+      "SKU": "SKU00349",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (65) > 50% of max quantity (123)"
+    },
+    {
+      "SKU": "SKU00355",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (80) > 50% of max quantity (42)"
+    },
+    {
+      "SKU": "SKU00357",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (54) > 50% of max quantity (70)"
+    },
+    {
+      "SKU": "SKU00366",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (28) > 50% of max quantity (43)"
+    },
+    {
+      "SKU": "SKU00369",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (28) > 50% of max quantity (31)"
+    },
+    {
+      "SKU": "SKU00370",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (55) > 50% of max quantity (7)"
+    },
+    {
+      "SKU": "SKU00379",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (82) > 50% of max quantity (36)"
+    },
+    {
+      "SKU": "SKU00384",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (32) > 50% of max quantity (45)"
+    },
+    {
+      "SKU": "SKU00387",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (59) > 50% of max quantity (43)"
+    },
+    {
+      "SKU": "SKU00390",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (59) > 50% of max quantity (82)"
+    },
+    {
+      "SKU": "SKU00399",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (33) > 50% of max quantity (20)"
+    },
+    {
+      "SKU": "SKU00400",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (73) > 50% of max quantity (91)"
+    },
+    {
+      "SKU": "SKU00404",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (82) > 50% of max quantity (57)"
+    },
+    {
+      "SKU": "SKU00408",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (63) > 50% of max quantity (49)"
+    },
+    {
+      "SKU": "SKU00414",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (73) > 50% of max quantity (66)"
+    },
+    {
+      "SKU": "SKU00419",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (95) > 50% of max quantity (42)"
+    },
+    {
+      "SKU": "SKU00428",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (73) > 50% of max quantity (0)"
+    },
+    {
+      "SKU": "SKU00436",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (93) > 50% of max quantity (41)"
+    },
+    {
+      "SKU": "SKU00444",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (82) > 50% of max quantity (74)"
+    },
+    {
+      "SKU": "SKU00445",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (72) > 50% of max quantity (14)"
+    },
+    {
+      "SKU": "SKU00450",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (67) > 50% of max quantity (128)"
+    },
+    {
+      "SKU": "SKU00451",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (91) > 50% of max quantity (9)"
+    },
+    {
+      "SKU": "SKU00458",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (46) > 50% of max quantity (10)"
+    },
+    {
+      "SKU": "SKU00459",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (97) > 50% of max quantity (100)"
+    },
+    {
+      "SKU": "SKU00462",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (84) > 50% of max quantity (49)"
+    },
+    {
+      "SKU": "SKU00481",
+      "Location": "WH1",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (99) > 50% of max quantity (176)"
+    },
+    {
+      "SKU": "SKU00483",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (63) > 50% of max quantity (16)"
+    },
+    {
+      "SKU": "SKU00486",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (96) > 50% of max quantity (66)"
+    },
+    {
+      "SKU": "SKU00490",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (37) > 50% of max quantity (6)"
+    },
+    {
+      "SKU": "SKU00491",
+      "Location": "WH3",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (48) > 50% of max quantity (0)"
+    },
+    {
+      "SKU": "SKU00498",
+      "Location": "WH2",
+      "Rule": "High Reorder Point",
+      "Details": "Reorder point (98) > 50% of max quantity (2)"
+    }
+  ],
+  "violation_count": 125
+}

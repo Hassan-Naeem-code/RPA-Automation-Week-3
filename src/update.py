@@ -362,7 +362,7 @@ class InventoryUpdater:
         Main update method that saves data in multiple formats.
 
         Args:
-            df: Processed inventory DataFrame
+            data: Processed inventory DataFrame
             summary_stats: Summary statistics
             violations: Business rule violations
             output_formats: List of formats to save ('csv', 'excel', 'json')
@@ -382,15 +382,15 @@ class InventoryUpdater:
         # Save in requested formats
         if "csv" in output_formats:
             csv_file = output_path / "inventory_processed.csv"
-            results["csv"] = self.save_to_csv(df, str(csv_file))
+            results["csv"] = self.save_to_csv(data, str(csv_file))
 
         if "excel" in output_formats:
             excel_file = output_path / "inventory_processed.xlsx"
-            results["excel"] = self.save_to_excel(df, str(excel_file))
+            results["excel"] = self.save_to_excel(data, str(excel_file))
 
         if "json" in output_formats:
             json_file = output_path / "inventory_processed.json"
-            results["json"] = self.save_to_json(df, str(json_file))
+            results["json"] = self.save_to_json(data, str(json_file))
 
         # Save summary report
         report_file = output_path / "processing_report.json"
@@ -399,11 +399,11 @@ class InventoryUpdater:
         )
 
         # Create backup
-        results["backup"] = self.backup_data(df)
+        results["backup"] = self.backup_data(data)
 
         # Post to API if configured
         if self.api_url:
-            api_data = df.to_dict("records")
+            api_data = data.to_dict("records")
             results["api"] = self.post_to_api(api_data)
 
         logger.info(f"Update completed. Results: {results}")
