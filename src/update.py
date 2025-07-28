@@ -273,7 +273,10 @@ class InventoryUpdater:
             logger.warning("No API URL configured, skipping API update")
             return False
 
-        url = endpoint or self.api_url
+        url: str = endpoint or self.api_url or ""
+        if not url:
+            logger.warning("No valid API URL available")
+            return False
 
         headers = {"Content-Type": "application/json", "Accept": "application/json"}
 
