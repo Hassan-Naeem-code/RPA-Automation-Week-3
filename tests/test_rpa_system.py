@@ -96,8 +96,8 @@ class TestInventoryExtractor:
             # Assertions
             assert "file_name" in file_info
             assert "file_size_bytes" in file_info
-            assert "extension" in file_info
-            assert file_info["extension"] == ".csv"
+            assert "file_extension" in file_info
+            assert file_info["file_extension"] == ".csv"
             assert file_info["file_size_bytes"] > 0
 
         finally:

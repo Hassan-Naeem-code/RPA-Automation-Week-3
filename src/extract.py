@@ -12,6 +12,7 @@ import pandas as pd
 import logging
 from pathlib import Path
 from typing import Optional, Dict, Any
+from datetime import datetime
 
 # Configure logging
 logger = logging.getLogger(__name__)
@@ -94,7 +95,7 @@ class InventoryExtractor:
             raise
 
     def extract_from_excel(
-        self, file_path: str, sheet_name: str = None
+        self, file_path: str, sheet_name: Optional[str] = None
     ) -> pd.DataFrame:
         """
         Extract inventory data from Excel file.
@@ -135,22 +136,22 @@ class InventoryExtractor:
         Returns:
             DataFrame containing the extracted data
         """
-        file_path = Path(file_path)
-        file_extension = file_path.suffix.lower()
+        file_path_obj = Path(file_path)
+        file_extension = file_path_obj.suffix.lower()
 
         logger.info(f"Extracting data from: {file_path}")
         logger.info(f"File type detected: {file_extension}")
 
         if file_extension == ".csv":
-            return self.extract_from_csv(str(file_path))
+            return self.extract_from_csv(str(file_path_obj))
         elif file_extension in [".xlsx", ".xls"]:
-            return self.extract_from_excel(str(file_path), **kwargs)
+            return self.extract_from_excel(str(file_path_obj))
         else:
             raise ValueError(f"Unsupported file format: {file_extension}")
 
     def get_file_info(self, file_path: str) -> Dict[str, Any]:
         """
-        Get information about the input file.
+        Get detailed information about a file.
 
         Args:
             file_path: Path to the file
@@ -158,21 +159,24 @@ class InventoryExtractor:
         Returns:
             Dictionary containing file information
         """
-        file_path = Path(file_path)
+        file_path_obj = Path(file_path)
 
-        if not file_path.exists():
+        if not file_path_obj.exists():
             raise FileNotFoundError(f"File not found: {file_path}")
 
-        file_stats = file_path.stat()
-
-        return {
-            "file_name": file_path.name,
-            "file_size_bytes": file_stats.st_size,
-            "file_size_mb": round(file_stats.st_size / (1024 * 1024), 2),
-            "last_modified": file_stats.st_mtime,
-            "extension": file_path.suffix.lower(),
-            "absolute_path": str(file_path.absolute()),
-        }
+        try:
+            stat_info = file_path_obj.stat()
+            return {
+                "file_name": file_path_obj.name,
+                "file_size_bytes": stat_info.st_size,
+                "file_size_mb": round(stat_info.st_size / (1024 * 1024), 2),
+                "modified_date": datetime.fromtimestamp(stat_info.st_mtime),
+                "file_extension": file_path_obj.suffix.lower(),
+                "absolute_path": str(file_path_obj.absolute()),
+            }
+        except Exception as e:
+            logger.error(f"Error getting file info: {e}")
+            raise
 
 
 def extract_inventory_data(

@@ -119,7 +119,7 @@ class SmartConfigManager:
     automatic validation, and dynamic parameter optimization.
     """
 
-    def __init__(self, config_dir: str = "config", environment: Environment = None):
+    def __init__(self, config_dir: str = "config", environment: Optional[Environment] = None):
         """
         Initialize the configuration manager.
 
@@ -492,7 +492,7 @@ class SmartConfigManager:
 
 
 # Configuration factory for easy access
-def create_config_manager(environment: str = None) -> SmartConfigManager:
+def create_config_manager(environment: Optional[str] = None) -> SmartConfigManager:
     """Factory function to create a configuration manager."""
     env = None
     if environment:

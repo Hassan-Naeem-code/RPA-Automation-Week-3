@@ -349,12 +349,12 @@ class InventoryUpdater:
 
     def update_inventory(
         self,
-        df: pd.DataFrame,
+        data: pd.DataFrame,
         summary_stats: Dict[str, Any],
-        violations: List[Dict[str, Any]],
-        output_formats: List[str] = None,
-        output_dir: str = "data",
-    ) -> Dict[str, bool]:
+        violations: List[Any],
+        output_formats: Optional[List[str]] = None,
+        output_dir: str = "data/processed",
+    ) -> Dict[str, Any]:
         """
         Main update method that saves data in multiple formats.
 
@@ -412,7 +412,7 @@ def update_inventory_data(
     summary_stats: Dict[str, Any],
     violations: List[Dict[str, Any]],
     config: Optional[Dict[str, Any]] = None,
-    output_formats: List[str] = None,
+    output_formats: Optional[List[str]] = None,
 ) -> Dict[str, bool]:
     """
     Convenience function for updating inventory data.

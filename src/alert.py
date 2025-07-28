@@ -265,9 +265,9 @@ class InventoryAlerter:
         self,
         alerts: Dict[str, pd.DataFrame],
         summary_stats: Dict[str, Any],
-        subject: str = None,
+        subject: Optional[str] = None,
         attach_report: bool = True,
-        report_file_path: str = None,
+        report_file_path: Optional[str] = None,
     ) -> bool:
         """
         Send email alert with inventory information.

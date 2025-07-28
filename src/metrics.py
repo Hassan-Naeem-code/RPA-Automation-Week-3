@@ -168,7 +168,7 @@ class MetricsCollector:
         )
 
     def record_error(
-        self, error_type: str, error_message: str, stage: str = None
+        self, error_type: str, error_message: str, stage: Optional[str] = None
     ) -> None:
         """
         Record an error that occurred during processing.
@@ -362,7 +362,7 @@ class MetricsCollector:
 
     def _group_errors_by_type(self) -> Dict[str, int]:
         """Group errors by type for summary reporting."""
-        error_counts = {}
+        error_counts: Dict[str, int] = {}
         for error in self.session_metrics.get("errors", []):
             error_type = error.get("error_type", "Unknown")
             error_counts[error_type] = error_counts.get(error_type, 0) + 1
