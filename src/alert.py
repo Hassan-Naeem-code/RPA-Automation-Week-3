@@ -326,7 +326,8 @@ class InventoryAlerter:
             # Send email
             server = smtplib.SMTP(self.smtp_server, self.smtp_port)
             server.starttls()
-            server.login(self.email_user, self.email_password)
+            if self.email_password:
+                server.login(self.email_user, self.email_password)
             text = msg.as_string()
             server.sendmail(self.email_user, self.alert_recipients, text)
             server.quit()

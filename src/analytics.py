@@ -38,7 +38,7 @@ class InventoryAnalytics:
         """Initialize the analytics engine."""
         self.config = config or {}
         self.historical_data: List[Any] = []
-        self.models = {}
+        self.models: Dict[str, Any] = {}
 
         # Set up matplotlib for headless operation
         plt.switch_backend("Agg")

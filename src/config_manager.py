@@ -46,7 +46,7 @@ class EmailConfig:
     smtp_port: int = 587
     sender_email: str = ""
     sender_password: str = ""
-    recipients: List[str] = None
+    recipients: Optional[List[str]] = None
     enable_tls: bool = True
     timeout: int = 30
     retry_attempts: int = 3
@@ -62,7 +62,7 @@ class ProcessingConfig:
 
     batch_size: int = 1000
     max_file_size_mb: int = 100
-    supported_formats: List[str] = None
+    supported_formats: Optional[List[str]] = None
     duplicate_handling: str = "keep_latest"  # keep_latest, keep_first, combine
     validation_level: str = "strict"  # strict, moderate, lenient
     enable_backups: bool = True
@@ -133,9 +133,9 @@ class SmartConfigManager:
         self.config_dir.mkdir(parents=True, exist_ok=True)
 
         self.environment = environment or self._detect_environment()
-        self.config = {}
-        self.schema = {}
-        self.watchers = []
+        self.config: Dict[str, Any] = {}
+        self.schema: Dict[str, Any] = {}
+        self.watchers: List[Any] = []
 
         logger.info(
             f"SmartConfigManager initialized for {self.environment.value} environment"
@@ -473,7 +473,7 @@ class SmartConfigManager:
 
     def export_template(self, include_sensitive: bool = False) -> Dict[str, Any]:
         """Export configuration as a template for other environments."""
-        template = {}
+        template: Dict[str, Any] = {}
 
         for section, settings in self.config.items():
             if isinstance(settings, dict):
