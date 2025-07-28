@@ -10,21 +10,19 @@ Date: July 2025
 
 import pytest
 import pandas as pd
-import numpy as np
 import tempfile
 import json
-from pathlib import Path
-from unittest.mock import Mock, patch, MagicMock
+from unittest.mock import Mock, patch
 import sys
 import os
 
 # Add src directory to path for imports
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 
-from extract import InventoryExtractor, extract_inventory_data
-from process import InventoryProcessor, process_inventory_data
-from update import InventoryUpdater, update_inventory_data
-from alert import InventoryAlerter, send_inventory_alerts
+from extract import InventoryExtractor
+from process import InventoryProcessor
+from update import InventoryUpdater
+from alert import InventoryAlerter
 from metrics import MetricsCollector
 
 

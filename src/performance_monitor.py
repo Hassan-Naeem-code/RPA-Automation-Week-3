@@ -13,14 +13,13 @@ import psutil
 import threading
 import logging
 from datetime import datetime, timedelta
-from typing import Dict, List, Any, Optional, Callable
+from typing import Dict, List, Any, Callable
 from dataclasses import dataclass, field
 from collections import deque
 import json
 from pathlib import Path
 import functools
 import gc
-import sys
 
 logger = logging.getLogger(__name__)
 
@@ -181,8 +180,9 @@ class PerformanceMonitor:
                             ),
                         ]
                     )
-            except Exception:
-                pass  # Disk I/O metrics not available on all systems
+            except Exception as e:
+                # Disk I/O metrics not available on all systems
+                logger.debug(f"Disk I/O metrics unavailable: {e}")
 
             # Store metrics
             for metric in metrics:
@@ -611,10 +611,10 @@ if __name__ == "__main__":
     @performance_timer(monitor)
     def test_processing_function(data_size: int = 1000):
         """Test function that simulates data processing."""
-        import random
+        import time
 
-        # Simulate processing
-        data = [random.random() * 100 for _ in range(data_size)]
+        # Simulate processing with predictable data (not cryptographic)
+        data = [i * 0.1 for i in range(data_size)]  # nosec: B311 - not cryptographic
 
         # Simulate some computation
         result = []

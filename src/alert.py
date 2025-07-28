@@ -16,10 +16,9 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from email import encoders
-from typing import Dict, List, Any, Optional
+from typing import Dict, Any, Optional
 from datetime import datetime
 from pathlib import Path
-import os
 
 # Configure logging
 logger = logging.getLogger(__name__)

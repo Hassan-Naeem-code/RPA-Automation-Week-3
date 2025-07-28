@@ -15,7 +15,6 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional, Union
 from datetime import datetime
 import requests
-import os
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment
 from openpyxl.utils.dataframe import dataframe_to_rows
@@ -142,8 +141,9 @@ class InventoryUpdater:
                         try:
                             if len(str(cell.value)) > max_length:
                                 max_length = len(str(cell.value))
-                        except:
-                            pass
+                        except (AttributeError, TypeError) as e:
+                            # Handle cases where cell.value is None or not string-convertible
+                            logger.debug(f"Cell value conversion issue: {e}")
                     adjusted_width = min(max_length + 2, 50)
                     ws.column_dimensions[column_letter].width = adjusted_width
 

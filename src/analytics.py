@@ -9,16 +9,12 @@ Date: July 2025
 """
 
 import pandas as pd
-import numpy as np
 import json
 import logging
-from datetime import datetime, timedelta
+from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Any, Optional, Tuple
+from typing import Dict, List, Any, Optional
 import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.linear_model import LinearRegression
-from sklearn.preprocessing import StandardScaler
 import warnings
 
 warnings.filterwarnings("ignore")
