@@ -119,7 +119,9 @@ class SmartConfigManager:
     automatic validation, and dynamic parameter optimization.
     """
 
-    def __init__(self, config_dir: str = "config", environment: Optional[Environment] = None):
+    def __init__(
+        self, config_dir: str = "config", environment: Optional[Environment] = None
+    ):
         """
         Initialize the configuration manager.
 
