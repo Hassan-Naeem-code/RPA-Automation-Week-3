@@ -496,11 +496,11 @@ if __name__ == "__main__":
     session_id = collector.start_session()
 
     # Simulate some processing stages
-    time.sleep(0.1)  # Simulate extraction
-    collector.record_stage_time("extraction", time.time() - 0.1, time.time())
+    time.sleep(0.01)  # Reduced simulation time for extraction
+    collector.record_stage_time("extraction", time.time() - 0.01, time.time())
 
-    time.sleep(0.2)  # Simulate processing
-    collector.record_stage_time("processing", time.time() - 0.2, time.time())
+    time.sleep(0.02)  # Reduced simulation time for processing
+    collector.record_stage_time("processing", time.time() - 0.02, time.time())
 
     # Create sample data for business metrics
     sample_data = pd.DataFrame(

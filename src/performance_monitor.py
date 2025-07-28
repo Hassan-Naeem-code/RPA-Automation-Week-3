@@ -149,7 +149,7 @@ class PerformanceMonitor:
                 PerformanceMetric(
                     timestamp=datetime.now(),
                     metric_name="system_cpu_percent",
-                    value=psutil.cpu_percent(interval=0.1),
+                    value=psutil.cpu_percent(interval=0.01),  # Reduced from 0.1 to 0.01
                     unit="percent",
                 ),
                 PerformanceMetric(
@@ -605,7 +605,7 @@ if __name__ == "__main__":
     monitor = PerformanceMonitor()
 
     # Start monitoring
-    monitor.start_monitoring(interval=0.5)
+    monitor.start_monitoring(interval=2.0)  # Increased interval to reduce overhead
 
     # Test function to benchmark
     @performance_timer(monitor)
@@ -619,8 +619,8 @@ if __name__ == "__main__":
         # Simulate some computation
         result = []
         for i, value in enumerate(data):
-            if i % 100 == 0:
-                time.sleep(0.001)  # Simulate I/O
+            if i % 1000 == 0:  # Reduced frequency from every 100 to every 1000
+                time.sleep(0.0001)  # Reduced from 0.001 to 0.0001
             result.append(value * 2 + 1)
 
         return result
@@ -633,7 +633,7 @@ if __name__ == "__main__":
         result = test_processing_function(size)
 
     # Wait for monitoring data
-    time.sleep(2)
+    time.sleep(0.5)  # Reduced from 2 seconds to 0.5 seconds
 
     # Get performance summary
     summary = monitor.get_performance_summary(hours_back=1)
