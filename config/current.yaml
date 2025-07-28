@@ -1,0 +1,55 @@
+alerts:
+  alert_frequency: immediate
+  consolidate_alerts: false
+  critical_threshold: 5
+  enable_console_alerts: true
+  enable_email_alerts: true
+  enable_file_logging: true
+  high_value_threshold: 1000.0
+  low_stock_threshold_percent: 20.0
+email:
+  enable_tls: true
+  recipients: []
+  retry_attempts: 3
+  sender_email: ''
+  sender_password: ''
+  smtp_port: 587
+  smtp_server: smtp.gmail.com
+  timeout: 30
+general:
+  app_name: RPA Inventory Management System
+  archive_directory: data/archive
+  author: Hassan Naeem
+  created_date: '2025-07-27T19:51:40.590046'
+  data_directory: data
+  debug_mode: true
+  log_directory: logs
+  output_directory: data/processed
+  version: 2.0.0
+performance:
+  enable_metrics: true
+  enable_profiling: true
+  log_level: DEBUG
+  memory_limit_mb: 512
+  metrics_retention_days: 90
+  performance_baseline_minutes: 45.0
+  target_processing_time_seconds: 60.0
+processing:
+  backup_retention_days: 30
+  batch_size: 100
+  duplicate_handling: keep_latest
+  enable_backups: true
+  max_file_size_mb: 100
+  supported_formats:
+  - csv
+  - xlsx
+  - xls
+  validation_level: strict
+security:
+  api_rate_limit: 100
+  audit_trail: true
+  encrypt_sensitive_data: true
+  mask_personal_info: true
+  max_login_attempts: 3
+  require_ssl: true
+  session_timeout_minutes: 30

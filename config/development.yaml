@@ -1,0 +1,7 @@
+general:
+  debug_mode: true
+performance:
+  enable_profiling: true
+  log_level: DEBUG
+processing:
+  batch_size: 100

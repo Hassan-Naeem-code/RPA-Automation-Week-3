@@ -1,0 +1,206 @@
+name: RPA Inventory Management CI/CD
+
+on:
+  push:
+    branches: [ master, main, develop ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.11, 3.12]
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Generate test data
+      run: |
+        python generate_fake_inventory.py
+    
+    - name: Run tests with pytest
+      run: |
+        pytest tests/ -v --cov=src --cov-report=xml --cov-report=term-missing
+    
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+    
+    - name: Test RPA workflow
+      run: |
+        python main.py --input data/inventory_raw.csv --output test_output/ --no-alerts --log-level INFO
+    
+    - name: Validate output files
+      run: |
+        ls -la test_output/
+        test -f test_output/inventory_processed.csv
+        test -f test_output/inventory_processed.xlsx
+        test -f test_output/inventory_processed.json
+        test -f test_output/processing_report.json
+
+  lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+    
+    - name: Install linting dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install black flake8 mypy
+    
+    - name: Run Black (code formatting)
+      run: |
+        black --check --diff src/ tests/
+    
+    - name: Run Flake8 (linting)
+      run: |
+        flake8 src/ tests/ --max-line-length=120 --ignore=E203,W503
+    
+    - name: Run MyPy (type checking)
+      run: |
+        mypy src/ --ignore-missing-imports
+
+  security:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+    
+    - name: Install security tools
+      run: |
+        python -m pip install --upgrade pip
+        pip install bandit safety
+    
+    - name: Run Bandit (security linting)
+      run: |
+        bandit -r src/ -f json -o bandit-report.json
+    
+    - name: Run Safety (dependency security)
+      run: |
+        safety check --json --output safety-report.json || true
+    
+    - name: Upload security reports
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: security-reports
+        path: |
+          bandit-report.json
+          safety-report.json
+
+  performance:
+    runs-on: ubuntu-latest
+    needs: test
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Generate large test dataset
+      run: |
+        python -c "
+import pandas as pd
+from faker import Faker
+from random import randint, choice
+fake = Faker()
+data = []
+for i in range(10000):  # Large dataset for performance testing
+    data.append({
+        'SKU': f'SKU{i:06d}',
+        'Description': fake.word(),
+        'Location': choice(['WH1', 'WH2', 'WH3']),
+        'OnHandQty': randint(0, 1000),
+        'ReorderPoint': randint(20, 200),
+        'UnitCost': round(fake.pyfloat(left_digits=2, right_digits=2, positive=True), 2)
+    })
+df = pd.DataFrame(data)
+df.to_csv('data/large_inventory.csv', index=False)
+print(f'Generated {len(df)} records for performance testing')
+        "
+    
+    - name: Run performance test
+      run: |
+        echo "Starting performance test with 10,000 records..."
+        time python main.py --input data/large_inventory.csv --output perf_output/ --no-alerts --log-level WARNING
+    
+    - name: Check performance metrics
+      run: |
+        python -c "
+import json
+with open('logs/metrics.json', 'r') as f:
+    metrics = json.load(f)
+runtime = metrics['session_info']['total_runtime_seconds']
+records = metrics['business_metrics']['total_records_processed']
+throughput = records / runtime if runtime > 0 else 0
+print(f'Performance Results:')
+print(f'  Total Runtime: {runtime:.2f} seconds')
+print(f'  Records Processed: {records}')
+print(f'  Throughput: {throughput:.2f} records/second')
+if runtime > 300:  # Fail if takes more than 5 minutes
+    print('PERFORMANCE WARNING: Processing took longer than expected')
+    exit(1)
+print('Performance test passed!')
+        "
+
+  deploy-docs:
+    runs-on: ubuntu-latest
+    needs: [test, lint]
+    if: github.ref == 'refs/heads/master'
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+    
+    - name: Install documentation dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install mkdocs mkdocs-material
+    
+    - name: Build documentation
+      run: |
+        mkdocs build
+    
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./site
