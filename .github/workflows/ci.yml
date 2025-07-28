@@ -134,23 +134,23 @@ jobs:
     - name: Generate large test dataset
       run: |
         python -c "
-import pandas as pd
-from faker import Faker
-from random import randint, choice
-fake = Faker()
-data = []
-for i in range(10000):  # Large dataset for performance testing
-    data.append({
-        'SKU': f'SKU{i:06d}',
-        'Description': fake.word(),
-        'Location': choice(['WH1', 'WH2', 'WH3']),
-        'OnHandQty': randint(0, 1000),
-        'ReorderPoint': randint(20, 200),
-        'UnitCost': round(fake.pyfloat(left_digits=2, right_digits=2, positive=True), 2)
-    })
-df = pd.DataFrame(data)
-df.to_csv('data/large_inventory.csv', index=False)
-print(f'Generated {len(df)} records for performance testing')
+        import pandas as pd
+        from faker import Faker
+        from random import randint, choice
+        fake = Faker()
+        data = []
+        for i in range(10000):
+            data.append({
+                'SKU': f'SKU{i:06d}',
+                'Description': fake.word(),
+                'Location': choice(['WH1', 'WH2', 'WH3']),
+                'OnHandQty': randint(0, 1000),
+                'ReorderPoint': randint(20, 200),
+                'UnitCost': round(fake.pyfloat(left_digits=2, right_digits=2, positive=True), 2)
+            })
+        df = pd.DataFrame(data)
+        df.to_csv('data/large_inventory.csv', index=False)
+        print(f'Generated {len(df)} records for performance testing')
         "
     
     - name: Run performance test
@@ -161,20 +161,20 @@ print(f'Generated {len(df)} records for performance testing')
     - name: Check performance metrics
       run: |
         python -c "
-import json
-with open('logs/metrics.json', 'r') as f:
-    metrics = json.load(f)
-runtime = metrics['session_info']['total_runtime_seconds']
-records = metrics['business_metrics']['total_records_processed']
-throughput = records / runtime if runtime > 0 else 0
-print(f'Performance Results:')
-print(f'  Total Runtime: {runtime:.2f} seconds')
-print(f'  Records Processed: {records}')
-print(f'  Throughput: {throughput:.2f} records/second')
-if runtime > 300:  # Fail if takes more than 5 minutes
-    print('PERFORMANCE WARNING: Processing took longer than expected')
-    exit(1)
-print('Performance test passed!')
+        import json
+        with open('logs/metrics.json', 'r') as f:
+            metrics = json.load(f)
+        runtime = metrics['session_info']['total_runtime_seconds']
+        records = metrics['business_metrics']['total_records_processed']
+        throughput = records / runtime if runtime > 0 else 0
+        print(f'Performance Results:')
+        print(f'  Total Runtime: {runtime:.2f} seconds')
+        print(f'  Records Processed: {records}')
+        print(f'  Throughput: {throughput:.2f} records/second')
+        if runtime > 300:
+            print('PERFORMANCE WARNING: Processing took longer than expected')
+            exit(1)
+        print('Performance test passed!')
         "
 
   deploy-docs:
