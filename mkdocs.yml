@@ -1,0 +1,109 @@
+site_name: RPA Inventory Management System
+site_description: A comprehensive Robotic Process Automation system for inventory management with data extraction, processing, and analytics capabilities.
+site_author: Muhammad Hassan Naeem
+site_url: https://github.com/your-username/RPA-Automation-Week-3
+
+# Repository information
+repo_name: RPA-Automation-Week-3
+repo_url: https://github.com/your-username/RPA-Automation-Week-3
+
+# Material theme configuration
+theme:
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - toc.follow
+    - toc.integrate
+
+  icon:
+    repo: fontawesome/brands/github
+
+# Navigation structure
+nav:
+  - Home: README.md
+  - Project Overview: PROJECT_OVERVIEW.md
+  - Advanced Features: ADVANCED_FEATURES.md
+  - Documentation:
+    - Process Documentation: process_documentation.md
+  - API Reference:
+    - Main Application: api/main.md
+    - Modules:
+      - Data Extraction: api/extract.md
+      - Data Processing: api/process.md
+      - Data Update: api/update.md
+      - Alert System: api/alert.md
+      - Metrics: api/metrics.md
+      - Performance Monitor: api/performance_monitor.md
+      - Analytics: api/analytics.md
+      - Configuration Manager: api/config_manager.md
+
+# Plugins
+plugins:
+  - search:
+      lang: en
+
+# Markdown extensions
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - footnotes
+  - md_in_html
+  - attr_list
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - toc:
+      permalink: true
+
+# Additional configuration
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/your-username
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/your-profile
+
+# Copyright
+copyright: Copyright &copy; 2024 Muhammad Hassan Naeem
+
+# Custom CSS and JavaScript
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js

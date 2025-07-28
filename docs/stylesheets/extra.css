@@ -1,0 +1,73 @@
+/* Custom styles for RPA Documentation */
+
+:root {
+  --rpa-primary: #1976d2;
+  --rpa-accent: #3f51b5;
+  --rpa-success: #4caf50;
+  --rpa-warning: #ff9800;
+  --rpa-error: #f44336;
+}
+
+/* Custom header styling */
+.md-header {
+  background: linear-gradient(135deg, var(--rpa-primary), var(--rpa-accent));
+}
+
+/* Code block enhancements */
+.highlight {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* API documentation styling */
+.api-function {
+  background: #f8f9fa;
+  border-left: 4px solid var(--rpa-primary);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.api-function h3 {
+  color: var(--rpa-primary);
+  margin-top: 0;
+}
+
+/* Performance metrics styling */
+.performance-metric {
+  display: inline-block;
+  background: var(--rpa-success);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  margin: 0.25rem;
+}
+
+/* Status badges */
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-success { background: var(--rpa-success); color: white; }
+.status-warning { background: var(--rpa-warning); color: white; }
+.status-error { background: var(--rpa-error); color: white; }
+
+/* Custom table styling */
+table {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .md-content__inner {
+    padding: 1rem;
+  }
+}
