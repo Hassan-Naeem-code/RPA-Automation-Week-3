@@ -9,7 +9,7 @@ Date: July 2025
 """
 
 import json
-import yaml
+import yaml  # type: ignore
 import os
 from pathlib import Path
 from typing import Dict, Any, Union, List, Optional

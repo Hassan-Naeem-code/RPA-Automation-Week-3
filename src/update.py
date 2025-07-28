@@ -14,7 +14,7 @@ import logging
 from pathlib import Path
 from typing import Dict, List, Any, Optional, Union
 from datetime import datetime
-import requests
+import requests  # type: ignore
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment
 from openpyxl.utils.dataframe import dataframe_to_rows
