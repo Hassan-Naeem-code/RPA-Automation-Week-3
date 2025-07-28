@@ -351,7 +351,7 @@ class PerformanceMonitor:
             metric_groups[metric.metric_name].append(metric.value)
 
         # Calculate statistics for each metric
-        summary = {
+        summary: Dict[str, Any] = {
             "period_hours": hours_back,
             "total_metrics": len(recent_metrics),
             "metric_statistics": {},
@@ -362,9 +362,10 @@ class PerformanceMonitor:
             "recommendations": [],
         }
 
+        metric_stats: Dict[str, Dict[str, Any]] = {}
         for metric_name, values in metric_groups.items():
             if values:
-                summary["metric_statistics"][metric_name] = {
+                metric_stats[metric_name] = {
                     "count": len(values),
                     "average": sum(values) / len(values),
                     "min": min(values),
@@ -372,14 +373,14 @@ class PerformanceMonitor:
                     "latest": values[-1],
                 }
 
+        summary["metric_statistics"] = metric_stats
+
         # Calculate performance score (0-100)
-        summary["performance_score"] = self._calculate_performance_score(
-            summary["metric_statistics"]
-        )
+        summary["performance_score"] = self._calculate_performance_score(metric_stats)
 
         # Generate recommendations
         summary["recommendations"] = self._generate_performance_recommendations(
-            summary["metric_statistics"]
+            metric_stats
         )
 
         return summary

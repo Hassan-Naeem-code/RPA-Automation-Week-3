@@ -60,7 +60,7 @@ class InventoryAnalytics:
         """
         logger.info(f"Starting trend analysis for {len(df)} inventory items")
 
-        analysis = {
+        analysis: Dict[str, Any] = {
             "timestamp": datetime.now().isoformat(),
             "analysis_period_days": historical_days,
             "total_items_analyzed": len(df),
@@ -69,18 +69,22 @@ class InventoryAnalytics:
             "recommendations": [],
         }
 
+        trends: Dict[str, Any] = {}
+
         try:
             # Stock level distribution analysis
             stock_analysis = self._analyze_stock_distribution(df)
-            analysis["trends"]["stock_distribution"] = stock_analysis
+            trends["stock_distribution"] = stock_analysis
 
             # Location-based analysis
             location_analysis = self._analyze_by_location(df)
-            analysis["trends"]["location_performance"] = location_analysis
+            trends["location_performance"] = location_analysis
 
             # Value-based analysis
             value_analysis = self._analyze_inventory_value(df)
-            analysis["trends"]["value_distribution"] = value_analysis
+            trends["value_distribution"] = value_analysis
+
+            analysis["trends"] = trends
 
             # Generate intelligent insights
             insights = self._generate_insights(
@@ -89,7 +93,7 @@ class InventoryAnalytics:
             analysis["insights"] = insights
 
             # Generate actionable recommendations
-            recommendations = self._generate_recommendations(df, analysis["trends"])
+            recommendations = self._generate_recommendations(df, trends)
             analysis["recommendations"] = recommendations
 
             logger.info(
@@ -363,13 +367,15 @@ class InventoryAnalytics:
         """
         logger.info(f"Generating demand forecast for {forecast_days} days")
 
-        predictions = {
+        predictions: Dict[str, Any] = {
             "forecast_period_days": forecast_days,
             "generated_at": datetime.now().isoformat(),
             "predictions": {},
             "confidence": "medium",  # Simple model has medium confidence
             "methodology": "Linear Regression on Historical Consumption Patterns",
         }
+
+        location_predictions: Dict[str, Any] = {}
 
         try:
             # Simple demand prediction based on current stock levels and reorder points
@@ -388,7 +394,7 @@ class InventoryAnalytics:
                     forecast_days / 30
                 )  # Monthly rate adjusted
 
-                predictions["predictions"][location] = {
+                location_predictions[location] = {
                     "estimated_monthly_consumption": float(consumption_rate),
                     "predicted_demand": float(predicted_demand),
                     "items_at_risk": int(
@@ -399,8 +405,10 @@ class InventoryAnalytics:
                     ),  # 20% safety stock
                 }
 
+            predictions["predictions"] = location_predictions
+
             logger.info(
-                f"Demand forecast completed for {len(predictions['predictions'])} locations"
+                f"Demand forecast completed for {len(location_predictions)} locations"
             )
 
         except Exception as e:
