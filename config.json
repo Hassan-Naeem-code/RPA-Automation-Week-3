@@ -1,0 +1,74 @@
+{
+  "system_config": {
+    "name": "RPA Inventory Management System",
+    "version": "1.0.0",
+    "environment": "production"
+  },
+  "email_config": {
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "email_user": "alerts@retailinnovations.com",
+    "alert_recipients": [
+      "inventory.manager@retailinnovations.com",
+      "warehouse.supervisor@retailinnovations.com"
+    ],
+    "alert_subject_prefix": "[INVENTORY ALERT]"
+  },
+  "business_rules": {
+    "low_stock_multiplier": 1.2,
+    "critical_stock_threshold": 5,
+    "high_value_threshold_percentile": 80,
+    "max_reorder_quantity": 1000,
+    "default_lead_time_days": 7
+  },
+  "processing_config": {
+    "remove_duplicates": true,
+    "duplicate_strategy": "keep_last",
+    "validate_business_rules": true,
+    "auto_backup": true,
+    "backup_retention_days": 30
+  },
+  "api_config": {
+    "inventory_api_url": "https://api.retailinnovations.com/inventory",
+    "api_timeout_seconds": 30,
+    "max_retries": 3,
+    "retry_delay_seconds": 1
+  },
+  "output_config": {
+    "default_formats": ["csv", "excel", "json"],
+    "excel_formatting": true,
+    "include_charts": false,
+    "compress_output": false
+  },
+  "logging_config": {
+    "log_level": "INFO",
+    "log_file": "logs/rpa_run.log",
+    "max_log_size_mb": 50,
+    "backup_count": 5,
+    "enable_console_output": true
+  },
+  "performance_config": {
+    "enable_metrics": true,
+    "metrics_file": "logs/metrics.json",
+    "track_performance": true,
+    "generate_reports": true
+  },
+  "data_validation": {
+    "required_columns": [
+      "SKU",
+      "Description", 
+      "Location",
+      "OnHandQty",
+      "ReorderPoint",
+      "UnitCost"
+    ],
+    "numeric_columns": [
+      "OnHandQty",
+      "ReorderPoint", 
+      "UnitCost"
+    ],
+    "allow_negative_quantities": false,
+    "max_unit_cost": 10000,
+    "min_unit_cost": 0.01
+  }
+}

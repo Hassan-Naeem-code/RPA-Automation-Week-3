@@ -1,0 +1,373 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# RPA Project Specific Files
+# =========================
+
+# Log files
+logs/
+*.log
+
+# Data files (keep structure but ignore actual data)
+data/*.csv
+data/*.xlsx
+data/*.json
+data/processed/
+!data/.gitkeep
+
+# Backup files
+backups/
+*.backup
+*.bak
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+
+# Environment and configuration
+.env
+.env.local
+.env.production
+config.local.json
+
+# IDE and Editor files
+# ====================
+
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+
+# Output files (for this specific project)
+# ========================================
+
+# Generated reports
+reports/
+*.report
+
+# Email templates (keep examples, ignore generated)
+email_templates/generated/
+
+# Metrics and performance data
+metrics/
+performance_data/
+
+# Test outputs
+test_outputs/
+test_data/generated/
+
+# Screenshots and recordings
+screenshots/
+recordings/
+*.png
+*.jpg
+*.gif
+*.mp4
+*.avi
+
+# Documentation builds
+docs/build/
+docs/_build/
+
+# Presentation files (keep source, ignore builds)
+presentations/build/
+*.pptx~
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# System files
+*.pid
+*.seed
+*.pid.lock
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.tgz
+*.tar.gz
+
+# Optional npm cache directory (if any Node.js tools used)
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+
+# Local development
+.local/
+local/
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Optional cache directories
+.cache/
+*.cache
+
+# Serverless directories
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Project specific ignores
+# ========================
+
+# Keep certain directories but ignore contents
+logs/.gitkeep
+backups/.gitkeep
+data/.gitkeep
+data/processed/.gitkeep
+
+# Keep requirements but ignore lock files
+requirements-dev.txt
+requirements-local.txt
+
+# Ignore sensitive configuration files
+secrets.json
+credentials.json
+private_keys/
+
+# Ignore large model files or datasets
+models/
+datasets/large/
+*.model
+*.pkl
+*.pickle
+
+# Ignore generated documentation
+api_docs/
+code_docs/
+
+# Ignore profiling outputs
+*.prof
+*.profile
+
+# Ignore memory dumps
+*.dmp
+core.*
+
+# Ignore editor backups
+*.orig
+*.rej
+
+# Ignore patch files
+*.patch
+*.diff
+
+# Ignore compiled translations
+*.mo
+
+# Ignore Sphinx builds
+_build/
+_static/
+_templates/
+
+# Ignore pytest artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Ignore mypy cache
+.mypy_cache/
+
+# End of .gitignore
