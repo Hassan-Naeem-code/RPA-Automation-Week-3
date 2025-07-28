@@ -255,7 +255,9 @@ class InventoryUpdater:
             return False
 
     def post_to_api(
-        self, data: Union[Dict[str, Any], List[Dict[str, Any]]], endpoint: Optional[str] = None
+        self,
+        data: Union[Dict[str, Any], List[Dict[str, Any]]],
+        endpoint: Optional[str] = None,
     ) -> bool:
         """
         Post inventory data to external API.

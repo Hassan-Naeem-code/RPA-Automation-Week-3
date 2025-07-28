@@ -217,7 +217,11 @@ class PerformanceMonitor:
                 )
 
     def record_metric(
-        self, name: str, value: float, unit: str, context: Optional[Dict[str, Any]] = None
+        self,
+        name: str,
+        value: float,
+        unit: str,
+        context: Optional[Dict[str, Any]] = None,
     ):
         """Record a custom performance metric."""
         metric = PerformanceMetric(
@@ -472,7 +476,9 @@ class PerformanceMonitor:
 
         return recommendations
 
-    def export_metrics(self, file_path: Optional[str] = None, format_type: str = "json") -> bool:
+    def export_metrics(
+        self, file_path: Optional[str] = None, format_type: str = "json"
+    ) -> bool:
         """
         Export performance metrics to file.
 

@@ -435,7 +435,9 @@ class MetricsCollector:
             logger.error(f"Error saving metrics: {e}")
             return False
 
-    def load_historical_metrics(self, file_path: Optional[str] = None) -> List[Dict[str, Any]]:
+    def load_historical_metrics(
+        self, file_path: Optional[str] = None
+    ) -> List[Dict[str, Any]]:
         """
         Load historical metrics from file.
 

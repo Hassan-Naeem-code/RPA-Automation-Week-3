@@ -11,11 +11,8 @@ Date: July 2025
 
 Usage:
     python main.py --input data/inventory_raw.csv --output data/processed/
-    python main.py --config config.json --send-alert# Configure global logger
-logger = logging.getLogger(__name__)
-
-if __name__ == "__main__":
-    main()  python main.py --help
+    python main.py --config config.json --send-alert
+    python main.py --help
 """
 
 import argparse
