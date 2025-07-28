@@ -45,7 +45,9 @@ class InventoryAnalytics:
 
         logger.info("InventoryAnalytics engine initialized")
 
-    def analyze_inventory_trends(self, df: pd.DataFrame, historical_days: int = 30) -> Dict[str, Any]:
+    def analyze_inventory_trends(
+        self, df: pd.DataFrame, historical_days: int = 30
+    ) -> Dict[str, Any]:
         """
         Perform comprehensive trend analysis on inventory data.
 
@@ -81,14 +83,18 @@ class InventoryAnalytics:
             analysis["trends"]["value_distribution"] = value_analysis
 
             # Generate intelligent insights
-            insights = self._generate_insights(df, stock_analysis, location_analysis, value_analysis)
+            insights = self._generate_insights(
+                df, stock_analysis, location_analysis, value_analysis
+            )
             analysis["insights"] = insights
 
             # Generate actionable recommendations
             recommendations = self._generate_recommendations(df, analysis["trends"])
             analysis["recommendations"] = recommendations
 
-            logger.info(f"Trend analysis completed: {len(insights)} insights, {len(recommendations)} recommendations")
+            logger.info(
+                f"Trend analysis completed: {len(insights)} insights, {len(recommendations)} recommendations"
+            )
 
         except Exception as e:
             logger.error(f"Error in trend analysis: {e}")
@@ -111,17 +117,25 @@ class InventoryAnalytics:
                 "items_needing_reorder": int((df["ReorderQty"] > 0).sum()),
                 "total_reorder_quantity": float(df["ReorderQty"].sum()),
                 "average_reorder_qty": (
-                    float(df[df["ReorderQty"] > 0]["ReorderQty"].mean()) if (df["ReorderQty"] > 0).any() else 0
+                    float(df[df["ReorderQty"] > 0]["ReorderQty"].mean())
+                    if (df["ReorderQty"] > 0).any()
+                    else 0
                 ),
             },
         }
 
         # Calculate stock velocity (theoretical)
         if "UnitCost" in df.columns:
-            df["StockVelocity"] = df["OnHandQty"] * df["UnitCost"] / df["ReorderPoint"].clip(lower=1)
+            df["StockVelocity"] = (
+                df["OnHandQty"] * df["UnitCost"] / df["ReorderPoint"].clip(lower=1)
+            )
             distribution["velocity_analysis"] = {
-                "fast_moving_items": int((df["StockVelocity"] > df["StockVelocity"].quantile(0.75)).sum()),
-                "slow_moving_items": int((df["StockVelocity"] < df["StockVelocity"].quantile(0.25)).sum()),
+                "fast_moving_items": int(
+                    (df["StockVelocity"] > df["StockVelocity"].quantile(0.75)).sum()
+                ),
+                "slow_moving_items": int(
+                    (df["StockVelocity"] < df["StockVelocity"].quantile(0.25)).sum()
+                ),
                 "average_velocity": float(df["StockVelocity"].mean()),
             }
 
@@ -138,20 +152,37 @@ class InventoryAnalytics:
 
             location_stats[location] = {
                 "total_items": len(location_df),
-                "total_value": float(location_df["TotalValue"].sum()) if "TotalValue" in location_df.columns else 0,
-                "critical_items": int((location_df["StockStatus"].isin(["Critical", "Out of Stock"])).sum()),
-                "low_stock_items": int((location_df["StockStatus"] == "Low Stock").sum()),
+                "total_value": (
+                    float(location_df["TotalValue"].sum())
+                    if "TotalValue" in location_df.columns
+                    else 0
+                ),
+                "critical_items": int(
+                    (
+                        location_df["StockStatus"].isin(["Critical", "Out of Stock"])
+                    ).sum()
+                ),
+                "low_stock_items": int(
+                    (location_df["StockStatus"] == "Low Stock").sum()
+                ),
                 "normal_items": int((location_df["StockStatus"] == "Normal").sum()),
                 "utilization_rate": (
-                    float(location_df["OnHandQty"].sum() / location_df["ReorderPoint"].sum())
+                    float(
+                        location_df["OnHandQty"].sum()
+                        / location_df["ReorderPoint"].sum()
+                    )
                     if location_df["ReorderPoint"].sum() > 0
                     else 0
                 ),
             }
 
         # Find best and worst performing locations
-        best_location = max(location_stats.keys(), key=lambda x: location_stats[x]["utilization_rate"])
-        worst_location = min(location_stats.keys(), key=lambda x: location_stats[x]["utilization_rate"])
+        best_location = max(
+            location_stats.keys(), key=lambda x: location_stats[x]["utilization_rate"]
+        )
+        worst_location = min(
+            location_stats.keys(), key=lambda x: location_stats[x]["utilization_rate"]
+        )
 
         return {
             "location_statistics": location_stats,
@@ -171,11 +202,16 @@ class InventoryAnalytics:
         df_sorted = df.sort_values("TotalValue", ascending=False)
         df_sorted["CumulativeValue"] = df_sorted["TotalValue"].cumsum()
         total_value = df_sorted["TotalValue"].sum()
-        df_sorted["CumulativePercent"] = (df_sorted["CumulativeValue"] / total_value) * 100
+        df_sorted["CumulativePercent"] = (
+            df_sorted["CumulativeValue"] / total_value
+        ) * 100
 
         # Classify items into A, B, C categories
         a_items = df_sorted[df_sorted["CumulativePercent"] <= 80]
-        b_items = df_sorted[(df_sorted["CumulativePercent"] > 80) & (df_sorted["CumulativePercent"] <= 95)]
+        b_items = df_sorted[
+            (df_sorted["CumulativePercent"] > 80)
+            & (df_sorted["CumulativePercent"] <= 95)
+        ]
         c_items = df_sorted[df_sorted["CumulativePercent"] > 95]
 
         return {
@@ -185,36 +221,46 @@ class InventoryAnalytics:
                     "count": len(a_items),
                     "percentage": round((len(a_items) / len(df)) * 100, 2),
                     "value": float(a_items["TotalValue"].sum()),
-                    "value_percentage": round((a_items["TotalValue"].sum() / total_value) * 100, 2),
+                    "value_percentage": round(
+                        (a_items["TotalValue"].sum() / total_value) * 100, 2
+                    ),
                 },
                 "b_items": {
                     "count": len(b_items),
                     "percentage": round((len(b_items) / len(df)) * 100, 2),
                     "value": float(b_items["TotalValue"].sum()),
-                    "value_percentage": round((b_items["TotalValue"].sum() / total_value) * 100, 2),
+                    "value_percentage": round(
+                        (b_items["TotalValue"].sum() / total_value) * 100, 2
+                    ),
                 },
                 "c_items": {
                     "count": len(c_items),
                     "percentage": round((len(c_items) / len(df)) * 100, 2),
                     "value": float(c_items["TotalValue"].sum()),
-                    "value_percentage": round((c_items["TotalValue"].sum() / total_value) * 100, 2),
+                    "value_percentage": round(
+                        (c_items["TotalValue"].sum() / total_value) * 100, 2
+                    ),
                 },
             },
-            "high_value_items": df_sorted.head(10)[["SKU", "Description", "TotalValue", "StockStatus"]].to_dict(
-                "records"
-            ),
+            "high_value_items": df_sorted.head(10)[
+                ["SKU", "Description", "TotalValue", "StockStatus"]
+            ].to_dict("records"),
         }
 
     def _generate_insights(
-        self, df: pd.DataFrame, stock_analysis: Dict, location_analysis: Dict, value_analysis: Dict
+        self,
+        df: pd.DataFrame,
+        stock_analysis: Dict,
+        location_analysis: Dict,
+        value_analysis: Dict,
     ) -> List[str]:
         """Generate intelligent insights from the analysis."""
         insights = []
 
         # Stock level insights
-        critical_ratio = stock_analysis["status_breakdown"].get("Critical", 0) + stock_analysis["status_breakdown"].get(
-            "Out of Stock", 0
-        )
+        critical_ratio = stock_analysis["status_breakdown"].get(
+            "Critical", 0
+        ) + stock_analysis["status_breakdown"].get("Out of Stock", 0)
         total_items = len(df)
 
         if critical_ratio / total_items > 0.05:  # More than 5% critical
@@ -226,7 +272,9 @@ class InventoryAnalytics:
         if "performance_ranking" in location_analysis:
             best_loc = location_analysis["performance_ranking"]["best_performing"]
             worst_loc = location_analysis["performance_ranking"]["worst_performing"]
-            insights.append(f"📍 LOCATION PERFORMANCE: {best_loc} is top performer, {worst_loc} needs attention")
+            insights.append(
+                f"📍 LOCATION PERFORMANCE: {best_loc} is top performer, {worst_loc} needs attention"
+            )
 
         # Value insights
         if "abc_analysis" in value_analysis:
@@ -244,16 +292,18 @@ class InventoryAnalytics:
 
         return insights
 
-    def _generate_recommendations(self, df: pd.DataFrame, trends: Dict) -> List[Dict[str, str]]:
+    def _generate_recommendations(
+        self, df: pd.DataFrame, trends: Dict
+    ) -> List[Dict[str, str]]:
         """Generate actionable recommendations."""
         recommendations = []
 
         # Stock optimization recommendations
         if "stock_distribution" in trends:
             stock_dist = trends["stock_distribution"]
-            critical_count = stock_dist["status_breakdown"].get("Critical", 0) + stock_dist["status_breakdown"].get(
-                "Out of Stock", 0
-            )
+            critical_count = stock_dist["status_breakdown"].get(
+                "Critical", 0
+            ) + stock_dist["status_breakdown"].get("Out of Stock", 0)
 
             if critical_count > 0:
                 recommendations.append(
@@ -266,8 +316,13 @@ class InventoryAnalytics:
                 )
 
         # Location optimization recommendations
-        if "location_performance" in trends and "performance_ranking" in trends["location_performance"]:
-            worst_location = trends["location_performance"]["performance_ranking"]["worst_performing"]
+        if (
+            "location_performance" in trends
+            and "performance_ranking" in trends["location_performance"]
+        ):
+            worst_location = trends["location_performance"]["performance_ranking"][
+                "worst_performing"
+            ]
             recommendations.append(
                 {
                     "priority": "MEDIUM",
@@ -278,7 +333,10 @@ class InventoryAnalytics:
             )
 
         # Value-based recommendations
-        if "value_distribution" in trends and "abc_analysis" in trends["value_distribution"]:
+        if (
+            "value_distribution" in trends
+            and "abc_analysis" in trends["value_distribution"]
+        ):
             recommendations.append(
                 {
                     "priority": "MEDIUM",
@@ -290,7 +348,9 @@ class InventoryAnalytics:
 
         return recommendations
 
-    def predict_demand(self, df: pd.DataFrame, forecast_days: int = 30) -> Dict[str, Any]:
+    def predict_demand(
+        self, df: pd.DataFrame, forecast_days: int = 30
+    ) -> Dict[str, Any]:
         """
         Predict future demand using simple linear regression.
 
@@ -317,19 +377,31 @@ class InventoryAnalytics:
                 location_df = df[df["Location"] == location]
 
                 # Estimate consumption rate based on current stock vs reorder point
-                consumption_rate = (location_df["ReorderPoint"] - location_df["OnHandQty"]).clip(lower=0).mean()
+                consumption_rate = (
+                    (location_df["ReorderPoint"] - location_df["OnHandQty"])
+                    .clip(lower=0)
+                    .mean()
+                )
 
                 # Predict future demand
-                predicted_demand = consumption_rate * (forecast_days / 30)  # Monthly rate adjusted
+                predicted_demand = consumption_rate * (
+                    forecast_days / 30
+                )  # Monthly rate adjusted
 
                 predictions["predictions"][location] = {
                     "estimated_monthly_consumption": float(consumption_rate),
                     "predicted_demand": float(predicted_demand),
-                    "items_at_risk": int((location_df["OnHandQty"] < predicted_demand).sum()),
-                    "recommended_safety_stock": float(predicted_demand * 0.2),  # 20% safety stock
+                    "items_at_risk": int(
+                        (location_df["OnHandQty"] < predicted_demand).sum()
+                    ),
+                    "recommended_safety_stock": float(
+                        predicted_demand * 0.2
+                    ),  # 20% safety stock
                 }
 
-            logger.info(f"Demand forecast completed for {len(predictions['predictions'])} locations")
+            logger.info(
+                f"Demand forecast completed for {len(predictions['predictions'])} locations"
+            )
 
         except Exception as e:
             logger.error(f"Error in demand prediction: {e}")
@@ -337,27 +409,37 @@ class InventoryAnalytics:
 
         return predictions
 
-    def generate_dashboard_data(self, df: pd.DataFrame, trends: Dict, predictions: Dict) -> Dict[str, Any]:
+    def generate_dashboard_data(
+        self, df: pd.DataFrame, trends: Dict, predictions: Dict
+    ) -> Dict[str, Any]:
         """Generate data structure for dashboard visualization."""
         dashboard = {
             "generated_at": datetime.now().isoformat(),
             "summary_cards": {
                 "total_items": len(df),
-                "total_value": float(df["TotalValue"].sum()) if "TotalValue" in df.columns else 0,
-                "critical_items": int((df["StockStatus"].isin(["Critical", "Out of Stock"])).sum()),
+                "total_value": (
+                    float(df["TotalValue"].sum()) if "TotalValue" in df.columns else 0
+                ),
+                "critical_items": int(
+                    (df["StockStatus"].isin(["Critical", "Out of Stock"])).sum()
+                ),
                 "reorder_needed": int((df["ReorderQty"] > 0).sum()),
             },
             "charts": {
                 "stock_status_pie": df["StockStatus"].value_counts().to_dict(),
                 "location_bar": (
-                    df.groupby("Location")["TotalValue"].sum().to_dict() if "Location" in df.columns else {}
+                    df.groupby("Location")["TotalValue"].sum().to_dict()
+                    if "Location" in df.columns
+                    else {}
                 ),
                 "value_distribution": self._create_value_distribution_data(df),
             },
             "alerts": self._generate_dashboard_alerts(df, trends),
             "kpis": {
                 "inventory_turnover": self._calculate_inventory_turnover(df),
-                "stockout_risk": float((df["StockStatus"] == "Out of Stock").sum() / len(df) * 100),
+                "stockout_risk": float(
+                    (df["StockStatus"] == "Out of Stock").sum() / len(df) * 100
+                ),
                 "carrying_cost_risk": self._calculate_carrying_cost_risk(df),
             },
         }
@@ -370,7 +452,11 @@ class InventoryAnalytics:
             return []
 
         # Create value bins
-        df["ValueBin"] = pd.cut(df["TotalValue"], bins=5, labels=["Very Low", "Low", "Medium", "High", "Very High"])
+        df["ValueBin"] = pd.cut(
+            df["TotalValue"],
+            bins=5,
+            labels=["Very Low", "Low", "Medium", "High", "Very High"],
+        )
         return df["ValueBin"].value_counts().to_dict()
 
     def _generate_dashboard_alerts(self, df: pd.DataFrame, trends: Dict) -> List[Dict]:
@@ -392,7 +478,8 @@ class InventoryAnalytics:
         # High value low stock alerts
         if "TotalValue" in df.columns:
             high_value_low_stock = df[
-                (df["TotalValue"] > df["TotalValue"].quantile(0.8)) & (df["StockStatus"] == "Low Stock")
+                (df["TotalValue"] > df["TotalValue"].quantile(0.8))
+                & (df["StockStatus"] == "Low Stock")
             ]
             if len(high_value_low_stock) > 0:
                 alerts.append(
@@ -413,7 +500,11 @@ class InventoryAnalytics:
 
         # Simplified turnover calculation
         total_value = df["TotalValue"].sum()
-        avg_stock_value = df["OnHandQty"].mean() * df["UnitCost"].mean() if "UnitCost" in df.columns else total_value
+        avg_stock_value = (
+            df["OnHandQty"].mean() * df["UnitCost"].mean()
+            if "UnitCost" in df.columns
+            else total_value
+        )
 
         return float(total_value / avg_stock_value) if avg_stock_value > 0 else 0.0
 
@@ -423,10 +514,14 @@ class InventoryAnalytics:
             return 0.0
 
         # Calculate percentage of inventory in slow-moving category
-        slow_moving = df[df["OnHandQty"] > df["ReorderPoint"] * 2]  # Items with > 2x reorder point
+        slow_moving = df[
+            df["OnHandQty"] > df["ReorderPoint"] * 2
+        ]  # Items with > 2x reorder point
         return float(len(slow_moving) / len(df) * 100)
 
-    def save_analytics_report(self, analytics_data: Dict, file_path: str = None) -> bool:
+    def save_analytics_report(
+        self, analytics_data: Dict, file_path: str = None
+    ) -> bool:
         """Save comprehensive analytics report to file."""
         if not file_path:
             file_path = f"data/processed/analytics_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"

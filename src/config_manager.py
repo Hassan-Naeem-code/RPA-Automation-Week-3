@@ -135,7 +135,9 @@ class SmartConfigManager:
         self.schema = {}
         self.watchers = []
 
-        logger.info(f"SmartConfigManager initialized for {self.environment.value} environment")
+        logger.info(
+            f"SmartConfigManager initialized for {self.environment.value} environment"
+        )
 
         # Load configuration
         self._load_default_config()
@@ -219,14 +221,20 @@ class SmartConfigManager:
                     value = value.lower() in ["true", "1", "yes", "on"]
 
                 self.config[section][key] = value
-                logger.info(f"Applied environment override: {env_var} -> {section}.{key}")
+                logger.info(
+                    f"Applied environment override: {env_var} -> {section}.{key}"
+                )
 
     def _deep_merge(self, base: Dict, override: Dict) -> Dict:
         """Deep merge two dictionaries."""
         result = base.copy()
 
         for key, value in override.items():
-            if key in result and isinstance(result[key], dict) and isinstance(value, dict):
+            if (
+                key in result
+                and isinstance(result[key], dict)
+                and isinstance(value, dict)
+            ):
                 result[key] = self._deep_merge(result[key], value)
             else:
                 result[key] = value
@@ -451,8 +459,13 @@ class SmartConfigManager:
         return {
             "environment": self.environment.value,
             "config_sections": list(self.config.keys()),
-            "total_settings": sum(len(section) if isinstance(section, dict) else 1 for section in self.config.values()),
-            "validation_status": "valid" if not self.validate_config() else "has_errors",
+            "total_settings": sum(
+                len(section) if isinstance(section, dict) else 1
+                for section in self.config.values()
+            ),
+            "validation_status": (
+                "valid" if not self.validate_config() else "has_errors"
+            ),
             "last_modified": datetime.now().isoformat(),
         }
 
@@ -466,7 +479,8 @@ class SmartConfigManager:
                 for key, value in settings.items():
                     # Skip sensitive values unless explicitly included
                     if not include_sensitive and any(
-                        sensitive in key.lower() for sensitive in ["password", "key", "secret", "token"]
+                        sensitive in key.lower()
+                        for sensitive in ["password", "key", "secret", "token"]
                     ):
                         template[section][key] = "<REDACTED>"
                     else:

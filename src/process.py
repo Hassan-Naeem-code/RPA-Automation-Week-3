@@ -105,11 +105,15 @@ class InventoryProcessor:
 
         logger.info(f"Data cleaning completed: {len(df_clean)} records remaining")
         logger.info(f"Removed {original_count - len(df_clean)} invalid records")
-        logger.info(f"Fixed {self.stats['negative_quantities_fixed']} negative quantities")
+        logger.info(
+            f"Fixed {self.stats['negative_quantities_fixed']} negative quantities"
+        )
 
         return df_clean
 
-    def remove_duplicates(self, df: pd.DataFrame, strategy: str = "keep_last") -> pd.DataFrame:
+    def remove_duplicates(
+        self, df: pd.DataFrame, strategy: str = "keep_last"
+    ) -> pd.DataFrame:
         """
         Remove duplicate records based on SKU and Location.
 
@@ -153,7 +157,9 @@ class InventoryProcessor:
         df_calc = df.copy()
 
         # Calculate reorder quantity needed
-        df_calc["ReorderQty"] = np.maximum(0, df_calc["ReorderPoint"] - df_calc["OnHandQty"])
+        df_calc["ReorderQty"] = np.maximum(
+            0, df_calc["ReorderPoint"] - df_calc["OnHandQty"]
+        )
 
         # Calculate stock status
         df_calc["StockStatus"] = "Normal"
@@ -175,7 +181,8 @@ class InventoryProcessor:
         # Calculate days of supply (assuming daily usage rate)
         df_calc["DaysOfSupply"] = np.where(
             df_calc["ReorderPoint"] > 0,
-            df_calc["OnHandQty"] / (df_calc["ReorderPoint"] / 30),  # Assume 30-day reorder cycle
+            df_calc["OnHandQty"]
+            / (df_calc["ReorderPoint"] / 30),  # Assume 30-day reorder cycle
             np.inf,
         )
 
@@ -187,15 +194,21 @@ class InventoryProcessor:
 
         # Update statistics
         self.stats["low_stock_items"] = (df_calc["StockStatus"] == "Low Stock").sum()
-        self.stats["critical_stock_items"] = (df_calc["StockStatus"].isin(["Critical", "Out of Stock"])).sum()
+        self.stats["critical_stock_items"] = (
+            df_calc["StockStatus"].isin(["Critical", "Out of Stock"])
+        ).sum()
 
         logger.info(f"Calculated metrics for {len(df_calc)} items")
         logger.info(f"Low stock items: {self.stats['low_stock_items']}")
-        logger.info(f"Critical/Out of stock items: {self.stats['critical_stock_items']}")
+        logger.info(
+            f"Critical/Out of stock items: {self.stats['critical_stock_items']}"
+        )
 
         return df_calc
 
-    def validate_business_rules(self, df: pd.DataFrame) -> Tuple[pd.DataFrame, List[Dict[str, Any]]]:
+    def validate_business_rules(
+        self, df: pd.DataFrame
+    ) -> Tuple[pd.DataFrame, List[Dict[str, Any]]]:
         """
         Validate business rules and flag violations.
 
@@ -226,7 +239,9 @@ class InventoryProcessor:
                 )
 
         # Rule 2: Unit cost should be within reasonable range
-        cost_outliers = df_validated[(df_validated["UnitCost"] < 0.1) | (df_validated["UnitCost"] > 1000)]
+        cost_outliers = df_validated[
+            (df_validated["UnitCost"] < 0.1) | (df_validated["UnitCost"] > 1000)
+        ]
 
         for idx, row in cost_outliers.iterrows():
             violations.append(
@@ -241,7 +256,9 @@ class InventoryProcessor:
         # Add validation flag
         df_validated["ValidationStatus"] = "Passed"
         violation_skus = {v["SKU"] for v in violations}
-        df_validated.loc[df_validated["SKU"].isin(violation_skus), "ValidationStatus"] = "Flagged"
+        df_validated.loc[
+            df_validated["SKU"].isin(violation_skus), "ValidationStatus"
+        ] = "Flagged"
 
         logger.info(f"Found {len(violations)} business rule violations")
 
@@ -267,16 +284,19 @@ class InventoryProcessor:
             "total_inventory_value": float(df["TotalValue"].sum()),
             "average_unit_cost": float(df["UnitCost"].mean()),
             "stock_status_breakdown": df["StockStatus"].value_counts().to_dict(),
-            "top_5_high_value_items": df.nlargest(5, "TotalValue")[["SKU", "Description", "TotalValue"]].to_dict(
-                "records"
-            ),
+            "top_5_high_value_items": df.nlargest(5, "TotalValue")[
+                ["SKU", "Description", "TotalValue"]
+            ].to_dict("records"),
             "processing_stats": self.stats.copy(),
         }
 
         return summary
 
     def process_inventory(
-        self, df: pd.DataFrame, remove_duplicates: bool = True, validate_rules: bool = True
+        self,
+        df: pd.DataFrame,
+        remove_duplicates: bool = True,
+        validate_rules: bool = True,
     ) -> Tuple[pd.DataFrame, Dict[str, Any], List[Dict[str, Any]]]:
         """
         Main processing pipeline that orchestrates all processing steps.

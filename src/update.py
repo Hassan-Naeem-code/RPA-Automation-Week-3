@@ -45,7 +45,9 @@ class InventoryUpdater:
 
         logger.info("InventoryUpdater initialized")
 
-    def save_to_csv(self, df: pd.DataFrame, file_path: str, include_index: bool = False) -> bool:
+    def save_to_csv(
+        self, df: pd.DataFrame, file_path: str, include_index: bool = False
+    ) -> bool:
         """
         Save inventory data to CSV file.
 
@@ -74,7 +76,11 @@ class InventoryUpdater:
             return False
 
     def save_to_excel(
-        self, df: pd.DataFrame, file_path: str, sheet_name: str = "Inventory", format_output: bool = True
+        self,
+        df: pd.DataFrame,
+        file_path: str,
+        sheet_name: str = "Inventory",
+        format_output: bool = True,
     ) -> bool:
         """
         Save inventory data to Excel file with optional formatting.
@@ -106,7 +112,9 @@ class InventoryUpdater:
 
                 # Format headers
                 header_font = Font(bold=True, color="FFFFFF")
-                header_fill = PatternFill(start_color="366092", end_color="366092", fill_type="solid")
+                header_fill = PatternFill(
+                    start_color="366092", end_color="366092", fill_type="solid"
+                )
 
                 for cell in ws[1]:
                     cell.font = header_font
@@ -127,11 +135,23 @@ class InventoryUpdater:
                             status = cell.value
 
                             if status == "Critical" or status == "Out of Stock":
-                                cell.fill = PatternFill(start_color="FF6B6B", end_color="FF6B6B", fill_type="solid")
+                                cell.fill = PatternFill(
+                                    start_color="FF6B6B",
+                                    end_color="FF6B6B",
+                                    fill_type="solid",
+                                )
                             elif status == "Low Stock":
-                                cell.fill = PatternFill(start_color="FFE66D", end_color="FFE66D", fill_type="solid")
+                                cell.fill = PatternFill(
+                                    start_color="FFE66D",
+                                    end_color="FFE66D",
+                                    fill_type="solid",
+                                )
                             elif status == "Normal":
-                                cell.fill = PatternFill(start_color="4DABF7", end_color="4DABF7", fill_type="solid")
+                                cell.fill = PatternFill(
+                                    start_color="4DABF7",
+                                    end_color="4DABF7",
+                                    fill_type="solid",
+                                )
 
                 # Auto-adjust column widths
                 for column in ws.columns:
@@ -159,7 +179,9 @@ class InventoryUpdater:
             logger.error(f"Error saving to Excel: {e}")
             return False
 
-    def save_to_json(self, df: pd.DataFrame, file_path: str, orient: str = "records", indent: int = 2) -> bool:
+    def save_to_json(
+        self, df: pd.DataFrame, file_path: str, orient: str = "records", indent: int = 2
+    ) -> bool:
         """
         Save inventory data to JSON file.
 
@@ -193,7 +215,10 @@ class InventoryUpdater:
             return False
 
     def save_summary_report(
-        self, summary_stats: Dict[str, Any], violations: List[Dict[str, Any]], file_path: str
+        self,
+        summary_stats: Dict[str, Any],
+        violations: List[Dict[str, Any]],
+        file_path: str,
     ) -> bool:
         """
         Save processing summary and violations to JSON report.
@@ -229,7 +254,9 @@ class InventoryUpdater:
             logger.error(f"Error saving summary report: {e}")
             return False
 
-    def post_to_api(self, data: Union[Dict[str, Any], List[Dict[str, Any]]], endpoint: str = None) -> bool:
+    def post_to_api(
+        self, data: Union[Dict[str, Any], List[Dict[str, Any]]], endpoint: str = None
+    ) -> bool:
         """
         Post inventory data to external API.
 
@@ -256,18 +283,28 @@ class InventoryUpdater:
 
             for attempt in range(self.max_retries):
                 try:
-                    response = requests.post(url, json=data, headers=headers, timeout=self.timeout)
+                    response = requests.post(
+                        url, json=data, headers=headers, timeout=self.timeout
+                    )
 
                     if response.status_code in [200, 201, 202]:
-                        logger.info(f"Successfully posted data to API (status: {response.status_code})")
+                        logger.info(
+                            f"Successfully posted data to API (status: {response.status_code})"
+                        )
                         return True
                     else:
-                        logger.warning(f"API returned status {response.status_code}: {response.text}")
+                        logger.warning(
+                            f"API returned status {response.status_code}: {response.text}"
+                        )
 
                 except requests.exceptions.Timeout:
-                    logger.warning(f"API request timeout (attempt {attempt + 1}/{self.max_retries})")
+                    logger.warning(
+                        f"API request timeout (attempt {attempt + 1}/{self.max_retries})"
+                    )
                 except requests.exceptions.ConnectionError:
-                    logger.warning(f"API connection error (attempt {attempt + 1}/{self.max_retries})")
+                    logger.warning(
+                        f"API connection error (attempt {attempt + 1}/{self.max_retries})"
+                    )
 
             logger.error(f"Failed to post to API after {self.max_retries} attempts")
             return False
@@ -352,7 +389,9 @@ class InventoryUpdater:
 
         # Save summary report
         report_file = output_path / "processing_report.json"
-        results["report"] = self.save_summary_report(summary_stats, violations, str(report_file))
+        results["report"] = self.save_summary_report(
+            summary_stats, violations, str(report_file)
+        )
 
         # Create backup
         results["backup"] = self.backup_data(df)

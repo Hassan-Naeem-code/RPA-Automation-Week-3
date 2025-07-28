@@ -88,7 +88,9 @@ class MetricsCollector:
 
         logger.info(f"Ended metrics session: {self.session_metrics['session_id']}")
 
-    def record_stage_time(self, stage_name: str, start_time: float, end_time: float) -> None:
+    def record_stage_time(
+        self, stage_name: str, start_time: float, end_time: float
+    ) -> None:
         """
         Record timing for a processing stage.
 
@@ -109,7 +111,10 @@ class MetricsCollector:
         logger.info(f"Recorded stage '{stage_name}': {duration}s")
 
     def record_business_metrics(
-        self, processed_data: pd.DataFrame, summary_stats: Dict[str, Any], violations: List[Dict[str, Any]]
+        self,
+        processed_data: pd.DataFrame,
+        summary_stats: Dict[str, Any],
+        violations: List[Dict[str, Any]],
     ) -> None:
         """
         Record business-related metrics from processed data.
@@ -121,30 +126,50 @@ class MetricsCollector:
         """
         business_metrics = {
             "total_records_processed": len(processed_data),
-            "unique_skus": processed_data["SKU"].nunique() if "SKU" in processed_data.columns else 0,
-            "total_inventory_value": float(summary_stats.get("total_inventory_value", 0)),
+            "unique_skus": (
+                processed_data["SKU"].nunique()
+                if "SKU" in processed_data.columns
+                else 0
+            ),
+            "total_inventory_value": float(
+                summary_stats.get("total_inventory_value", 0)
+            ),
             "low_stock_items": (
                 len(processed_data[processed_data["StockStatus"] == "Low Stock"])
                 if "StockStatus" in processed_data.columns
                 else 0
             ),
             "critical_items": (
-                len(processed_data[processed_data["StockStatus"].isin(["Critical", "Out of Stock"])])
+                len(
+                    processed_data[
+                        processed_data["StockStatus"].isin(["Critical", "Out of Stock"])
+                    ]
+                )
                 if "StockStatus" in processed_data.columns
                 else 0
             ),
             "items_needing_reorder": (
-                len(processed_data[processed_data["ReorderQty"] > 0]) if "ReorderQty" in processed_data.columns else 0
+                len(processed_data[processed_data["ReorderQty"] > 0])
+                if "ReorderQty" in processed_data.columns
+                else 0
             ),
             "business_rule_violations": len(violations),
-            "data_quality_score": self._calculate_data_quality_score(processed_data, violations),
-            "processing_accuracy": self._calculate_processing_accuracy(processed_data, violations),
+            "data_quality_score": self._calculate_data_quality_score(
+                processed_data, violations
+            ),
+            "processing_accuracy": self._calculate_processing_accuracy(
+                processed_data, violations
+            ),
         }
 
         self.session_metrics["business_metrics"] = business_metrics
-        logger.info(f"Recorded business metrics: {business_metrics['total_records_processed']} records processed")
+        logger.info(
+            f"Recorded business metrics: {business_metrics['total_records_processed']} records processed"
+        )
 
-    def record_error(self, error_type: str, error_message: str, stage: str = None) -> None:
+    def record_error(
+        self, error_type: str, error_message: str, stage: str = None
+    ) -> None:
         """
         Record an error that occurred during processing.
 
@@ -163,7 +188,9 @@ class MetricsCollector:
         self.session_metrics["errors"].append(error_record)
         logger.warning(f"Recorded error: {error_type} in {stage}: {error_message}")
 
-    def _calculate_data_quality_score(self, df: pd.DataFrame, violations: List[Dict[str, Any]]) -> float:
+    def _calculate_data_quality_score(
+        self, df: pd.DataFrame, violations: List[Dict[str, Any]]
+    ) -> float:
         """
         Calculate a data quality score based on various factors.
 
@@ -179,7 +206,9 @@ class MetricsCollector:
 
         # Factors for data quality score
         total_records = len(df)
-        violation_penalty = min(50, (len(violations) / total_records) * 100)  # Max 50 point penalty
+        violation_penalty = min(
+            50, (len(violations) / total_records) * 100
+        )  # Max 50 point penalty
 
         # Check for missing critical data
         critical_columns = ["SKU", "OnHandQty", "ReorderPoint"]
@@ -188,7 +217,9 @@ class MetricsCollector:
         for col in critical_columns:
             if col in df.columns:
                 missing_count = df[col].isna().sum()
-                missing_data_penalty += (missing_count / total_records) * 10  # Max 10 points per column
+                missing_data_penalty += (
+                    missing_count / total_records
+                ) * 10  # Max 10 points per column
 
         # Calculate score
         base_score = 100
@@ -196,7 +227,9 @@ class MetricsCollector:
 
         return round(final_score, 2)
 
-    def _calculate_processing_accuracy(self, df: pd.DataFrame, violations: List[Dict[str, Any]]) -> float:
+    def _calculate_processing_accuracy(
+        self, df: pd.DataFrame, violations: List[Dict[str, Any]]
+    ) -> float:
         """
         Calculate processing accuracy percentage.
 
@@ -229,7 +262,9 @@ class MetricsCollector:
         actual_runtime = self.session_metrics.get("total_runtime_seconds", 0)
         target_runtime = self.baselines["target_runtime_seconds"]
 
-        indicators["runtime_efficiency_percent"] = round((target_runtime / max(actual_runtime, 0.1)) * 100, 2)
+        indicators["runtime_efficiency_percent"] = round(
+            (target_runtime / max(actual_runtime, 0.1)) * 100, 2
+        )
 
         # Time savings compared to manual process
         manual_time_seconds = self.baselines["manual_processing_time_minutes"] * 60
@@ -238,7 +273,9 @@ class MetricsCollector:
         indicators["time_saved_seconds"] = max(0, time_saved_seconds)
         indicators["time_saved_minutes"] = round(time_saved_seconds / 60, 2)
         indicators["time_savings_percent"] = (
-            round((time_saved_seconds / manual_time_seconds) * 100, 2) if manual_time_seconds > 0 else 0
+            round((time_saved_seconds / manual_time_seconds) * 100, 2)
+            if manual_time_seconds > 0
+            else 0
         )
 
         # Cost savings
@@ -248,23 +285,39 @@ class MetricsCollector:
         indicators["cost_saved_dollars"] = round(max(0, cost_saved), 2)
 
         # Error rate improvement
-        actual_error_rate = 100 - self.session_metrics.get("business_metrics", {}).get("processing_accuracy", 100)
+        actual_error_rate = 100 - self.session_metrics.get("business_metrics", {}).get(
+            "processing_accuracy", 100
+        )
         manual_error_rate = self.baselines["manual_error_rate_percent"]
 
-        indicators["error_rate_improvement_percent"] = round(manual_error_rate - actual_error_rate, 2)
+        indicators["error_rate_improvement_percent"] = round(
+            manual_error_rate - actual_error_rate, 2
+        )
 
         # Processing throughput
-        records_processed = self.session_metrics.get("business_metrics", {}).get("total_records_processed", 0)
+        records_processed = self.session_metrics.get("business_metrics", {}).get(
+            "total_records_processed", 0
+        )
 
-        indicators["records_per_second"] = round(records_processed / max(actual_runtime, 0.1), 2)
-        indicators["records_per_minute"] = round((records_processed / max(actual_runtime, 0.1)) * 60, 2)
+        indicators["records_per_second"] = round(
+            records_processed / max(actual_runtime, 0.1), 2
+        )
+        indicators["records_per_minute"] = round(
+            (records_processed / max(actual_runtime, 0.1)) * 60, 2
+        )
 
         # ROI calculation (simple)
-        processing_cost = (actual_runtime / 3600) * 5  # Assume $5/hour for automated processing
+        processing_cost = (
+            actual_runtime / 3600
+        ) * 5  # Assume $5/hour for automated processing
         manual_processing_cost = (manual_time_seconds / 3600) * hourly_rate
 
         indicators["roi_percent"] = (
-            round(((manual_processing_cost - processing_cost) / processing_cost) * 100, 2) if processing_cost > 0 else 0
+            round(
+                ((manual_processing_cost - processing_cost) / processing_cost) * 100, 2
+            )
+            if processing_cost > 0
+            else 0
         )
 
         self.session_metrics["performance_indicators"] = indicators
@@ -288,11 +341,15 @@ class MetricsCollector:
                 "session_id": self.session_metrics["session_id"],
                 "start_time": self.session_metrics.get("start_timestamp"),
                 "end_time": self.session_metrics.get("end_timestamp"),
-                "total_runtime_seconds": self.session_metrics.get("total_runtime_seconds", 0),
+                "total_runtime_seconds": self.session_metrics.get(
+                    "total_runtime_seconds", 0
+                ),
             },
             "stage_performance": self.session_metrics.get("stages", {}),
             "business_metrics": self.session_metrics.get("business_metrics", {}),
-            "performance_indicators": self.session_metrics.get("performance_indicators", {}),
+            "performance_indicators": self.session_metrics.get(
+                "performance_indicators", {}
+            ),
             "error_summary": {
                 "total_errors": len(self.session_metrics.get("errors", [])),
                 "errors_by_type": self._group_errors_by_type(),
@@ -323,18 +380,26 @@ class MetricsCollector:
         comparison["runtime_vs_target"] = {
             "actual_seconds": actual_runtime,
             "target_seconds": target_runtime,
-            "performance": "EXCELLENT" if actual_runtime <= target_runtime else "NEEDS_IMPROVEMENT",
+            "performance": (
+                "EXCELLENT" if actual_runtime <= target_runtime else "NEEDS_IMPROVEMENT"
+            ),
             "difference_seconds": actual_runtime - target_runtime,
         }
 
         # Error rate comparison
-        actual_error_rate = 100 - self.session_metrics.get("business_metrics", {}).get("processing_accuracy", 100)
+        actual_error_rate = 100 - self.session_metrics.get("business_metrics", {}).get(
+            "processing_accuracy", 100
+        )
         target_error_rate = self.baselines["target_error_rate_percent"]
 
         comparison["error_rate_vs_target"] = {
             "actual_error_rate_percent": actual_error_rate,
             "target_error_rate_percent": target_error_rate,
-            "performance": "EXCELLENT" if actual_error_rate <= target_error_rate else "NEEDS_IMPROVEMENT",
+            "performance": (
+                "EXCELLENT"
+                if actual_error_rate <= target_error_rate
+                else "NEEDS_IMPROVEMENT"
+            ),
             "difference_percent": actual_error_rate - target_error_rate,
         }
 
@@ -419,7 +484,9 @@ class MetricsCollector:
         recent_data = []
 
         for session in historical_data:
-            session_date = datetime.fromisoformat(session["session_info"]["start_time"].replace("Z", "+00:00"))
+            session_date = datetime.fromisoformat(
+                session["session_info"]["start_time"].replace("Z", "+00:00")
+            )
             if session_date >= cutoff_date:
                 recent_data.append(session)
 
@@ -428,8 +495,13 @@ class MetricsCollector:
 
         # Calculate trends
         runtimes = [s["session_info"]["total_runtime_seconds"] for s in recent_data]
-        error_rates = [100 - s["business_metrics"].get("processing_accuracy", 100) for s in recent_data]
-        records_processed = [s["business_metrics"].get("total_records_processed", 0) for s in recent_data]
+        error_rates = [
+            100 - s["business_metrics"].get("processing_accuracy", 100)
+            for s in recent_data
+        ]
+        records_processed = [
+            s["business_metrics"].get("total_records_processed", 0) for s in recent_data
+        ]
 
         trends = {
             "analysis_period_days": days,
@@ -439,13 +511,21 @@ class MetricsCollector:
                 "min_seconds": round(np.min(runtimes), 2),
                 "max_seconds": round(np.max(runtimes), 2),
                 "std_deviation": round(np.std(runtimes), 2),
-                "trend": "IMPROVING" if len(runtimes) > 1 and runtimes[-1] < runtimes[0] else "STABLE",
+                "trend": (
+                    "IMPROVING"
+                    if len(runtimes) > 1 and runtimes[-1] < runtimes[0]
+                    else "STABLE"
+                ),
             },
             "error_rate_trends": {
                 "average_error_rate_percent": round(np.mean(error_rates), 2),
                 "min_error_rate_percent": round(np.min(error_rates), 2),
                 "max_error_rate_percent": round(np.max(error_rates), 2),
-                "trend": "IMPROVING" if len(error_rates) > 1 and error_rates[-1] < error_rates[0] else "STABLE",
+                "trend": (
+                    "IMPROVING"
+                    if len(error_rates) > 1 and error_rates[-1] < error_rates[0]
+                    else "STABLE"
+                ),
             },
             "throughput_trends": {
                 "average_records_processed": round(np.mean(records_processed), 2),
@@ -474,12 +554,16 @@ def track_performance(func):
             result = func(*args, **kwargs)
             end_time = time.time()
 
-            logger.info(f"Function '{func.__name__}' completed in {end_time - start_time:.2f}s")
+            logger.info(
+                f"Function '{func.__name__}' completed in {end_time - start_time:.2f}s"
+            )
             return result
 
         except Exception as e:
             end_time = time.time()
-            logger.error(f"Function '{func.__name__}' failed after {end_time - start_time:.2f}s: {e}")
+            logger.error(
+                f"Function '{func.__name__}' failed after {end_time - start_time:.2f}s: {e}"
+            )
             raise
 
     return wrapper

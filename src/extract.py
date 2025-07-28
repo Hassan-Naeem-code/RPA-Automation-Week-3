@@ -65,7 +65,14 @@ class InventoryExtractor:
                 raise pd.errors.EmptyDataError("CSV file is empty")
 
             # Validate required columns exist
-            required_columns = ["SKU", "Description", "Location", "OnHandQty", "ReorderPoint", "UnitCost"]
+            required_columns = [
+                "SKU",
+                "Description",
+                "Location",
+                "OnHandQty",
+                "ReorderPoint",
+                "UnitCost",
+            ]
             missing_columns = [col for col in required_columns if col not in df.columns]
 
             if missing_columns:
@@ -86,7 +93,9 @@ class InventoryExtractor:
             logger.error(f"Unexpected error during CSV extraction: {e}")
             raise
 
-    def extract_from_excel(self, file_path: str, sheet_name: str = None) -> pd.DataFrame:
+    def extract_from_excel(
+        self, file_path: str, sheet_name: str = None
+    ) -> pd.DataFrame:
         """
         Extract inventory data from Excel file.
 
@@ -166,7 +175,9 @@ class InventoryExtractor:
         }
 
 
-def extract_inventory_data(file_path: str, config: Optional[Dict[str, Any]] = None) -> pd.DataFrame:
+def extract_inventory_data(
+    file_path: str, config: Optional[Dict[str, Any]] = None
+) -> pd.DataFrame:
     """
     Convenience function for extracting inventory data.
 

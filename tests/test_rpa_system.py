@@ -137,7 +137,9 @@ class TestInventoryProcessor:
     def test_remove_duplicates(self):
         """Test duplicate removal."""
         # Test keep_last strategy
-        deduped_df = self.processor.remove_duplicates(self.sample_data, strategy="keep_last")
+        deduped_df = self.processor.remove_duplicates(
+            self.sample_data, strategy="keep_last"
+        )
 
         # Should have 3 records (one duplicate removed)
         assert len(deduped_df) == 3
@@ -153,7 +155,13 @@ class TestInventoryProcessor:
         metrics_df = self.processor.calculate_reorder_metrics(cleaned_df)
 
         # Check new columns are added
-        expected_columns = ["ReorderQty", "StockStatus", "DaysOfSupply", "TotalValue", "ProcessedAt"]
+        expected_columns = [
+            "ReorderQty",
+            "StockStatus",
+            "DaysOfSupply",
+            "TotalValue",
+            "ProcessedAt",
+        ]
         for col in expected_columns:
             assert col in metrics_df.columns
 
@@ -166,7 +174,9 @@ class TestInventoryProcessor:
 
     def test_validate_business_rules(self):
         """Test business rule validation."""
-        processed_df = self.processor.calculate_reorder_metrics(self.processor.clean_data(self.sample_data))
+        processed_df = self.processor.calculate_reorder_metrics(
+            self.processor.clean_data(self.sample_data)
+        )
 
         validated_df, violations = self.processor.validate_business_rules(processed_df)
 
@@ -180,7 +190,9 @@ class TestInventoryProcessor:
 
     def test_process_inventory_complete(self):
         """Test complete inventory processing pipeline."""
-        processed_df, summary_stats, violations = self.processor.process_inventory(self.sample_data)
+        processed_df, summary_stats, violations = self.processor.process_inventory(
+            self.sample_data
+        )
 
         # Check processed data
         assert len(processed_df) > 0
@@ -211,7 +223,10 @@ class TestInventoryUpdater:
                 "TotalValue": [100.0, 250.0],
             }
         )
-        self.sample_stats = {"total_records": 2, "processing_timestamp": "2025-01-01T12:00:00"}
+        self.sample_stats = {
+            "total_records": 2,
+            "processing_timestamp": "2025-01-01T12:00:00",
+        }
         self.sample_violations = []
 
     def test_save_to_csv(self):
@@ -249,7 +264,9 @@ class TestInventoryUpdater:
         with tempfile.TemporaryDirectory() as temp_dir:
             report_file = os.path.join(temp_dir, "test_report.json")
 
-            success = self.updater.save_summary_report(self.sample_stats, self.sample_violations, report_file)
+            success = self.updater.save_summary_report(
+                self.sample_stats, self.sample_violations, report_file
+            )
 
             assert success
             assert os.path.exists(report_file)
@@ -305,7 +322,11 @@ class TestInventoryAlerter:
             }
         )
 
-        self.sample_stats = {"total_records": 3, "total_inventory_value": 1425.0, "unique_skus": 3}
+        self.sample_stats = {
+            "total_records": 3,
+            "total_inventory_value": 1425.0,
+            "unique_skus": 3,
+        }
 
     def test_filter_alert_items(self):
         """Test alert item filtering."""
@@ -370,7 +391,11 @@ class TestMetricsCollector:
         """Set up test fixtures."""
         self.collector = MetricsCollector()
         self.sample_df = pd.DataFrame(
-            {"SKU": ["SKU001", "SKU002"], "StockStatus": ["Normal", "Low Stock"], "ReorderQty": [0, 15]}
+            {
+                "SKU": ["SKU001", "SKU002"],
+                "StockStatus": ["Normal", "Low Stock"],
+                "ReorderQty": [0, 15],
+            }
         )
         self.sample_stats = {"total_inventory_value": 1000.0}
         self.sample_violations = []
@@ -409,7 +434,9 @@ class TestMetricsCollector:
 
     def test_record_business_metrics(self):
         """Test business metrics recording."""
-        self.collector.record_business_metrics(self.sample_df, self.sample_stats, self.sample_violations)
+        self.collector.record_business_metrics(
+            self.sample_df, self.sample_stats, self.sample_violations
+        )
 
         business_metrics = self.collector.session_metrics["business_metrics"]
 
@@ -422,7 +449,9 @@ class TestMetricsCollector:
         """Test performance indicator calculation."""
         # Set up session with some data
         self.collector.start_session()
-        self.collector.record_business_metrics(self.sample_df, self.sample_stats, self.sample_violations)
+        self.collector.record_business_metrics(
+            self.sample_df, self.sample_stats, self.sample_violations
+        )
         self.collector.end_session()
 
         indicators = self.collector.calculate_performance_indicators()
@@ -444,7 +473,9 @@ class TestMetricsCollector:
         """Test metrics summary generation."""
         # Set up complete session
         self.collector.start_session()
-        self.collector.record_business_metrics(self.sample_df, self.sample_stats, self.sample_violations)
+        self.collector.record_business_metrics(
+            self.sample_df, self.sample_stats, self.sample_violations
+        )
         self.collector.end_session()
 
         summary = self.collector.generate_metrics_summary()
@@ -482,7 +513,9 @@ class TestIntegration:
 
         # Process data
         processor = InventoryProcessor()
-        processed_df, summary_stats, violations = processor.process_inventory(sample_data)
+        processed_df, summary_stats, violations = processor.process_inventory(
+            sample_data
+        )
 
         # Verify processing results
         assert len(processed_df) > 0
@@ -504,7 +537,9 @@ class TestIntegration:
         collector.end_session()
 
         metrics_summary = collector.generate_metrics_summary()
-        assert metrics_summary["business_metrics"]["total_records_processed"] == len(processed_df)
+        assert metrics_summary["business_metrics"]["total_records_processed"] == len(
+            processed_df
+        )
 
 
 if __name__ == "__main__":

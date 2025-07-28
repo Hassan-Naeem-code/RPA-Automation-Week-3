@@ -103,7 +103,9 @@ class PerformanceMonitor:
 
         self.monitoring_interval = interval
         self.monitoring_active = True
-        self.monitoring_thread = threading.Thread(target=self._monitoring_loop, daemon=True)
+        self.monitoring_thread = threading.Thread(
+            target=self._monitoring_loop, daemon=True
+        )
         self.monitoring_thread.start()
 
         logger.info(f"Performance monitoring started (interval: {interval}s)")
@@ -138,7 +140,10 @@ class PerformanceMonitor:
 
             metrics = [
                 PerformanceMetric(
-                    timestamp=datetime.now(), metric_name="system_memory_percent", value=memory.percent, unit="percent"
+                    timestamp=datetime.now(),
+                    metric_name="system_memory_percent",
+                    value=memory.percent,
+                    unit="percent",
                 ),
                 PerformanceMetric(
                     timestamp=datetime.now(),
@@ -211,10 +216,16 @@ class PerformanceMonitor:
                     f"exceeds threshold of {threshold}"
                 )
 
-    def record_metric(self, name: str, value: float, unit: str, context: Dict[str, Any] = None):
+    def record_metric(
+        self, name: str, value: float, unit: str, context: Dict[str, Any] = None
+    ):
         """Record a custom performance metric."""
         metric = PerformanceMetric(
-            timestamp=datetime.now(), metric_name=name, value=value, unit=unit, context=context or {}
+            timestamp=datetime.now(),
+            metric_name=name,
+            value=value,
+            unit=unit,
+            context=context or {},
         )
 
         self.metrics_history.append(metric)
@@ -232,7 +243,11 @@ class PerformanceMonitor:
         Returns:
             BenchmarkResult with performance metrics
         """
-        test_name = f"{func.__module__}.{func.__name__}" if hasattr(func, "__name__") else str(func)
+        test_name = (
+            f"{func.__module__}.{func.__name__}"
+            if hasattr(func, "__name__")
+            else str(func)
+        )
 
         # Collect initial metrics
         start_time = datetime.now()
@@ -282,7 +297,9 @@ class PerformanceMonitor:
 
         return benchmark
 
-    def benchmark_data_processing(self, data, processing_func: Callable) -> BenchmarkResult:
+    def benchmark_data_processing(
+        self, data, processing_func: Callable
+    ) -> BenchmarkResult:
         """
         Benchmark data processing with throughput metrics.
 
@@ -334,7 +351,9 @@ class PerformanceMonitor:
             "period_hours": hours_back,
             "total_metrics": len(recent_metrics),
             "metric_statistics": {},
-            "recent_benchmarks": len([b for b in self.benchmarks if b.start_time >= cutoff_time]),
+            "recent_benchmarks": len(
+                [b for b in self.benchmarks if b.start_time >= cutoff_time]
+            ),
             "performance_score": 0.0,
             "recommendations": [],
         }
@@ -350,10 +369,14 @@ class PerformanceMonitor:
                 }
 
         # Calculate performance score (0-100)
-        summary["performance_score"] = self._calculate_performance_score(summary["metric_statistics"])
+        summary["performance_score"] = self._calculate_performance_score(
+            summary["metric_statistics"]
+        )
 
         # Generate recommendations
-        summary["recommendations"] = self._generate_performance_recommendations(summary["metric_statistics"])
+        summary["recommendations"] = self._generate_performance_recommendations(
+            summary["metric_statistics"]
+        )
 
         return summary
 
@@ -364,25 +387,36 @@ class PerformanceMonitor:
         # Memory score
         if "process_memory_mb" in stats:
             memory_avg = stats["process_memory_mb"]["average"]
-            memory_score = max(0, 100 - (memory_avg / self.baselines["memory_usage_mb"]) * 100)
+            memory_score = max(
+                0, 100 - (memory_avg / self.baselines["memory_usage_mb"]) * 100
+            )
             scores.append(memory_score)
 
         # CPU score
         if "process_cpu_percent" in stats:
             cpu_avg = stats["process_cpu_percent"]["average"]
-            cpu_score = max(0, 100 - (cpu_avg / self.baselines["cpu_usage_percent"]) * 100)
+            cpu_score = max(
+                0, 100 - (cpu_avg / self.baselines["cpu_usage_percent"]) * 100
+            )
             scores.append(cpu_score)
 
         # Benchmark score
         recent_benchmarks = [b for b in self.benchmarks[-10:] if b.success]
         if recent_benchmarks:
-            avg_duration = sum(b.duration_seconds for b in recent_benchmarks) / len(recent_benchmarks)
-            duration_score = max(0, 100 - (avg_duration / self.baselines["processing_time_seconds"]) * 100)
+            avg_duration = sum(b.duration_seconds for b in recent_benchmarks) / len(
+                recent_benchmarks
+            )
+            duration_score = max(
+                0,
+                100 - (avg_duration / self.baselines["processing_time_seconds"]) * 100,
+            )
             scores.append(duration_score)
 
         return sum(scores) / len(scores) if scores else 50.0
 
-    def _generate_performance_recommendations(self, stats: Dict[str, Dict]) -> List[str]:
+    def _generate_performance_recommendations(
+        self, stats: Dict[str, Dict]
+    ) -> List[str]:
         """Generate performance optimization recommendations."""
         recommendations = []
 
@@ -432,7 +466,9 @@ class PerformanceMonitor:
                 )
 
         if not recommendations:
-            recommendations.append("✅ EXCELLENT: Performance metrics are within optimal ranges!")
+            recommendations.append(
+                "✅ EXCELLENT: Performance metrics are within optimal ranges!"
+            )
 
         return recommendations
 
@@ -498,7 +534,9 @@ class PerformanceMonitor:
                     writer = csv.writer(f)
 
                     # Write metrics
-                    writer.writerow(["Type", "Timestamp", "Name", "Value", "Unit", "Context"])
+                    writer.writerow(
+                        ["Type", "Timestamp", "Name", "Value", "Unit", "Context"]
+                    )
 
                     for metric in self.metrics_history:
                         writer.writerow(
@@ -551,7 +589,8 @@ class PerformanceMonitor:
         # Filter metrics
         old_count = len(self.metrics_history)
         self.metrics_history = deque(
-            (m for m in self.metrics_history if m.timestamp >= cutoff_time), maxlen=self.max_history
+            (m for m in self.metrics_history if m.timestamp >= cutoff_time),
+            maxlen=self.max_history,
         )
 
         # Filter benchmarks
@@ -561,7 +600,9 @@ class PerformanceMonitor:
         metrics_removed = old_count - len(self.metrics_history)
         benchmarks_removed = old_benchmark_count - len(self.benchmarks)
 
-        logger.info(f"Cleared {metrics_removed} old metrics and {benchmarks_removed} old benchmarks")
+        logger.info(
+            f"Cleared {metrics_removed} old metrics and {benchmarks_removed} old benchmarks"
+        )
 
 
 def performance_timer(monitor: PerformanceMonitor = None):
@@ -587,7 +628,8 @@ def performance_timer(monitor: PerformanceMonitor = None):
                 )
             else:
                 logger.error(
-                    f"❌ {func.__name__} failed after {benchmark.duration_seconds:.3f}s: " f"{benchmark.error_message}"
+                    f"❌ {func.__name__} failed after {benchmark.duration_seconds:.3f}s: "
+                    f"{benchmark.error_message}"
                 )
 
             return benchmark if not benchmark.success else args, kwargs

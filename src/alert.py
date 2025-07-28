@@ -49,7 +49,9 @@ class InventoryAlerter:
         self.alert_recipients = self.config.get("alert_recipients", [])
 
         if isinstance(self.alert_recipients, str):
-            self.alert_recipients = [email.strip() for email in self.alert_recipients.split(",")]
+            self.alert_recipients = [
+                email.strip() for email in self.alert_recipients.split(",")
+            ]
 
         # Alert thresholds
         self.critical_threshold = self.config.get("critical_stock_threshold", 5)
@@ -85,7 +87,9 @@ class InventoryAlerter:
 
         return alerts
 
-    def generate_email_html(self, alerts: Dict[str, pd.DataFrame], summary_stats: Dict[str, Any]) -> str:
+    def generate_email_html(
+        self, alerts: Dict[str, pd.DataFrame], summary_stats: Dict[str, Any]
+    ) -> str:
         """
         Generate HTML email content for inventory alerts.
 
@@ -154,7 +158,11 @@ class InventoryAlerter:
             """
 
             for _, row in alerts["critical"].iterrows():
-                status_class = "critical" if row["StockStatus"] in ["Critical", "Out of Stock"] else ""
+                status_class = (
+                    "critical"
+                    if row["StockStatus"] in ["Critical", "Out of Stock"]
+                    else ""
+                )
                 html_content += f"""
                     <tr class="{status_class}">
                         <td>{row['SKU']}</td>
@@ -188,7 +196,11 @@ class InventoryAlerter:
             """
 
             for _, row in alerts["low_stock"].iterrows():
-                days_supply = f"{row.get('DaysOfSupply', 0):.1f}" if pd.notna(row.get("DaysOfSupply")) else "N/A"
+                days_supply = (
+                    f"{row.get('DaysOfSupply', 0):.1f}"
+                    if pd.notna(row.get("DaysOfSupply"))
+                    else "N/A"
+                )
                 html_content += f"""
                     <tr class="low-stock">
                         <td>{row['SKU']}</td>
@@ -275,7 +287,9 @@ class InventoryAlerter:
             return False
 
         try:
-            logger.info(f"Sending email alert to {len(self.alert_recipients)} recipients")
+            logger.info(
+                f"Sending email alert to {len(self.alert_recipients)} recipients"
+            )
 
             # Create message
             msg = MIMEMultipart()
@@ -347,7 +361,9 @@ class InventoryAlerter:
                 output.append("-" * 30)
 
                 for _, row in df.head(5).iterrows():  # Show top 5 items
-                    output.append(f"  • {row['SKU']} - {row['Description']} ({row['Location']})")
+                    output.append(
+                        f"  • {row['SKU']} - {row['Description']} ({row['Location']})"
+                    )
                     output.append(
                         f"    On Hand: {row['OnHandQty']}, Reorder: {row['ReorderPoint']}, Status: {row['StockStatus']}"
                     )
@@ -360,7 +376,10 @@ class InventoryAlerter:
         return "\n".join(output)
 
     def save_alert_log(
-        self, alerts: Dict[str, pd.DataFrame], summary_stats: Dict[str, Any], log_file: str = "logs/alerts.log"
+        self,
+        alerts: Dict[str, pd.DataFrame],
+        summary_stats: Dict[str, Any],
+        log_file: str = "logs/alerts.log",
     ) -> bool:
         """
         Save alert information to log file.
@@ -382,8 +401,16 @@ class InventoryAlerter:
                 "summary_stats": summary_stats,
                 "alert_counts": {category: len(df) for category, df in alerts.items()},
                 "total_alerts": sum(len(df) for df in alerts.values()),
-                "critical_items": alerts["critical"]["SKU"].tolist() if not alerts["critical"].empty else [],
-                "low_stock_items": alerts["low_stock"]["SKU"].tolist() if not alerts["low_stock"].empty else [],
+                "critical_items": (
+                    alerts["critical"]["SKU"].tolist()
+                    if not alerts["critical"].empty
+                    else []
+                ),
+                "low_stock_items": (
+                    alerts["low_stock"]["SKU"].tolist()
+                    if not alerts["low_stock"].empty
+                    else []
+                ),
             }
 
             with open(log_file, "a") as f:
@@ -443,7 +470,10 @@ class InventoryAlerter:
 
 
 def send_inventory_alerts(
-    df: pd.DataFrame, summary_stats: Dict[str, Any], config: Optional[Dict[str, Any]] = None, send_email: bool = True
+    df: pd.DataFrame,
+    summary_stats: Dict[str, Any],
+    config: Optional[Dict[str, Any]] = None,
+    send_email: bool = True,
 ) -> Dict[str, bool]:
     """
     Convenience function for sending inventory alerts.
@@ -468,7 +498,12 @@ if __name__ == "__main__":
     # Create sample data for testing
     sample_data = {
         "SKU": ["SKU001", "SKU002", "SKU003", "SKU004"],
-        "Description": ["Critical Item", "Low Stock Item", "Normal Item", "Out of Stock Item"],
+        "Description": [
+            "Critical Item",
+            "Low Stock Item",
+            "Normal Item",
+            "Out of Stock Item",
+        ],
         "Location": ["WH1", "WH2", "WH3", "WH1"],
         "OnHandQty": [2, 15, 100, 0],
         "ReorderPoint": [25, 30, 50, 20],
