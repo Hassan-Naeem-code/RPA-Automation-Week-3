@@ -220,7 +220,7 @@ class InventoryProcessor:
         """
         logger.info("Validating business rules")
 
-        violations = []
+        violations: List[Any] = []
         df_validated = df.copy()
 
         # Rule 1: Reorder point should be reasonable (not more than 50% of max observed quantity)
@@ -322,7 +322,7 @@ class InventoryProcessor:
         df_processed = self.calculate_reorder_metrics(df_processed)
 
         # Step 4: Validate business rules if requested
-        violations = []
+        violations: List[Any] = []
         if validate_rules:
             df_processed, violations = self.validate_business_rules(df_processed)
 

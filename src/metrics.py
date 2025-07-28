@@ -40,7 +40,7 @@ class MetricsCollector:
         self.metrics_file = self.config.get("metrics_file", "logs/metrics.json")
 
         # Initialize metrics storage
-        self.session_metrics = {
+        self.session_metrics: Dict[str, Any] = {
             "session_id": f"session_{datetime.now().strftime('%Y%m%d_%H%M%S')}",
             "start_time": None,
             "end_time": None,
@@ -405,7 +405,7 @@ class MetricsCollector:
 
         return comparison
 
-    def save_metrics(self, file_path: str = None) -> bool:
+    def save_metrics(self, file_path: Optional[str] = None) -> bool:
         """
         Save metrics to file.
 
@@ -435,7 +435,7 @@ class MetricsCollector:
             logger.error(f"Error saving metrics: {e}")
             return False
 
-    def load_historical_metrics(self, file_path: str = None) -> List[Dict[str, Any]]:
+    def load_historical_metrics(self, file_path: Optional[str] = None) -> List[Dict[str, Any]]:
         """
         Load historical metrics from file.
 

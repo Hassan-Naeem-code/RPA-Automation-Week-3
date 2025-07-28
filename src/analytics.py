@@ -37,7 +37,7 @@ class InventoryAnalytics:
     def __init__(self, config: Optional[Dict[str, Any]] = None):
         """Initialize the analytics engine."""
         self.config = config or {}
-        self.historical_data = []
+        self.historical_data: List[Any] = []
         self.models = {}
 
         # Set up matplotlib for headless operation
@@ -520,7 +520,7 @@ class InventoryAnalytics:
         return float(len(slow_moving) / len(df) * 100)
 
     def save_analytics_report(
-        self, analytics_data: Dict, file_path: str = None
+        self, analytics_data: Dict, file_path: Optional[str] = None
     ) -> bool:
         """Save comprehensive analytics report to file."""
         if not file_path:

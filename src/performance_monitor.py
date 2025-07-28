@@ -13,7 +13,7 @@ import psutil
 import threading
 import logging
 from datetime import datetime, timedelta
-from typing import Dict, List, Any, Callable
+from typing import Dict, List, Any, Callable, Optional
 from dataclasses import dataclass, field
 from collections import deque
 import json
@@ -72,10 +72,10 @@ class PerformanceMonitor:
             max_history: Maximum number of metrics to keep in memory
         """
         self.max_history = max_history
-        self.metrics_history = deque(maxlen=max_history)
-        self.benchmarks = []
+        self.metrics_history: deque = deque(maxlen=max_history)
+        self.benchmarks: List[BenchmarkResult] = []
         self.monitoring_active = False
-        self.monitoring_thread = None
+        self.monitoring_thread: Optional[threading.Thread] = None
         self.monitoring_interval = 1.0  # seconds
 
         # Performance baselines
@@ -217,7 +217,7 @@ class PerformanceMonitor:
                 )
 
     def record_metric(
-        self, name: str, value: float, unit: str, context: Dict[str, Any] = None
+        self, name: str, value: float, unit: str, context: Optional[Dict[str, Any]] = None
     ):
         """Record a custom performance metric."""
         metric = PerformanceMetric(
@@ -340,7 +340,7 @@ class PerformanceMonitor:
         recent_metrics = [m for m in self.metrics_history if m.timestamp >= cutoff_time]
 
         # Group metrics by name
-        metric_groups = {}
+        metric_groups: Dict[str, List[float]] = {}
         for metric in recent_metrics:
             if metric.metric_name not in metric_groups:
                 metric_groups[metric.metric_name] = []
@@ -472,7 +472,7 @@ class PerformanceMonitor:
 
         return recommendations
 
-    def export_metrics(self, file_path: str = None, format_type: str = "json") -> bool:
+    def export_metrics(self, file_path: Optional[str] = None, format_type: str = "json") -> bool:
         """
         Export performance metrics to file.
 
@@ -605,7 +605,7 @@ class PerformanceMonitor:
         )
 
 
-def performance_timer(monitor: PerformanceMonitor = None):
+def performance_timer(monitor: Optional[PerformanceMonitor] = None):
     """
     Decorator to automatically benchmark function performance.
 

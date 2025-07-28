@@ -255,7 +255,7 @@ class InventoryUpdater:
             return False
 
     def post_to_api(
-        self, data: Union[Dict[str, Any], List[Dict[str, Any]]], endpoint: str = None
+        self, data: Union[Dict[str, Any], List[Dict[str, Any]]], endpoint: Optional[str] = None
     ) -> bool:
         """
         Post inventory data to external API.
@@ -448,7 +448,7 @@ if __name__ == "__main__":
 
     df = pd.DataFrame(sample_data)
     summary = {"total_records": 3, "processing_timestamp": datetime.now().isoformat()}
-    violations = []
+    violations: List[Any] = []
 
     results = update_inventory_data(df, summary, violations)
     print(f"Update results: {results}")
