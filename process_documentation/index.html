@@ -1,0 +1,1639 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A comprehensive Robotic Process Automation system for inventory management with data extraction, processing, and analytics capabilities.">
+      
+      
+        <meta name="author" content="Muhammad Hassan Naeem">
+      
+      
+        <link rel="canonical" href="https://github.com/your-username/RPA-Automation-Week-3/process_documentation/">
+      
+      
+        <link rel="prev" href="../ADVANCED_FEATURES/">
+      
+      
+        <link rel="next" href="../api/main/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Process Documentation - RPA Inventory Management System</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#rpa-inventory-management-system-process-documentation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="RPA Inventory Management System" class="md-header__button md-logo" aria-label="RPA Inventory Management System" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RPA Inventory Management System
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Process Documentation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/your-username/RPA-Automation-Week-3" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    RPA-Automation-Week-3
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../PROJECT_OVERVIEW/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Project Overview
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../ADVANCED_FEATURES/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Advanced Features
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../api/main/" class="md-tabs__link">
+          
+  
+  
+  API Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="RPA Inventory Management System" class="md-nav__button md-logo" aria-label="RPA Inventory Management System" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    RPA Inventory Management System
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/your-username/RPA-Automation-Week-3" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    RPA-Automation-Week-3
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PROJECT_OVERVIEW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ADVANCED_FEATURES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Features
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Process Documentation
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Process Documentation
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#business-process-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Business Process Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Business Process Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-state-manual-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current State (Manual Process)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issues-with-current-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issues with Current Process
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automation-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automation Objectives
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automation Objectives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#primary-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Primary Goals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Success Metrics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-automated-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step-by-Step Automated Workflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-Step Automated Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-data-extraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 1: Data Extraction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-data-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 2: Data Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-data-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 3: Data Validation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-4-update-and-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 4: Update and Output
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-5-alert-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 5: Alert Generation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-6-metrics-and-reporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 6: Metrics and Reporting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technical-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environmental-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environmental Requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Requirements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-assessment-and-mitigations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Risk Assessment and Mitigations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk Assessment and Mitigations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technical-risks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Risks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#business-risks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Business Risks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operational-risks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operational Risks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation Timeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation Timeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-1-foundation-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 1: Foundation Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-2-feature-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 2: Feature Development
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-3-testing-and-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 3: Testing and Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-phase-week-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment Phase (Week 4)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maintenance-and-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maintenance and Support
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Maintenance and Support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ongoing-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ongoing Maintenance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#support-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continuous-improvement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous Improvement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/main/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Main Application
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/extract/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Extraction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/update/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Update
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/alert/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Alert System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Metrics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/performance_monitor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Performance Monitor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Analytics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/config_manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuration Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="rpa-inventory-management-system-process-documentation">RPA Inventory Management System - Process Documentation<a class="headerlink" href="#rpa-inventory-management-system-process-documentation" title="Permanent link">&para;</a></h1>
+<h2 id="business-process-overview">Business Process Overview<a class="headerlink" href="#business-process-overview" title="Permanent link">&para;</a></h2>
+<h3 id="current-state-manual-process">Current State (Manual Process)<a class="headerlink" href="#current-state-manual-process" title="Permanent link">&para;</a></h3>
+<p>The existing manual inventory management process at Retail Innovations Inc. involves:</p>
+<ol>
+<li><strong>Data Collection</strong> (15 minutes)</li>
+<li>Warehouse staff manually count inventory items</li>
+<li>Quantities are recorded on paper forms</li>
+<li>
+<p>Forms are collected from multiple warehouse locations</p>
+</li>
+<li>
+<p><strong>Data Entry</strong> (20 minutes)</p>
+</li>
+<li>Staff manually key quantities into Excel spreadsheets</li>
+<li>Calculations are performed manually or with basic formulas</li>
+<li>
+<p>Multiple spreadsheet versions often exist</p>
+</li>
+<li>
+<p><strong>Analysis and Decision Making</strong> (10 minutes)</p>
+</li>
+<li>Manual comparison of on-hand quantities vs. reorder points</li>
+<li>Identification of low stock items through visual inspection</li>
+<li>Creation of reorder lists in separate documents</li>
+</ol>
+<h3 id="issues-with-current-process">Issues with Current Process<a class="headerlink" href="#issues-with-current-process" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>High Error Rate</strong>: Manual data entry leads to ~15% error rate</li>
+<li><strong>Time Intensive</strong>: 45 minutes per warehouse per day</li>
+<li><strong>Inconsistent</strong>: Different staff follow different procedures</li>
+<li><strong>Delayed Response</strong>: Alerts only generated during business hours</li>
+<li><strong>Data Quality</strong>: No automated validation or business rules</li>
+<li><strong>Reporting</strong>: Limited historical tracking and trend analysis</li>
+</ul>
+<h2 id="automation-objectives">Automation Objectives<a class="headerlink" href="#automation-objectives" title="Permanent link">&para;</a></h2>
+<h3 id="primary-goals">Primary Goals<a class="headerlink" href="#primary-goals" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Reduce Processing Time</strong>: From 45 minutes to under 1 minute (98% reduction)</li>
+<li><strong>Improve Accuracy</strong>: Reduce error rate from 15% to under 2% (87% improvement)</li>
+<li><strong>Enable Real-time Processing</strong>: 24/7 automated monitoring</li>
+<li><strong>Standardize Process</strong>: Consistent, repeatable workflow</li>
+<li><strong>Enhance Reporting</strong>: Comprehensive metrics and trend analysis</li>
+</ol>
+<h3 id="success-metrics">Success Metrics<a class="headerlink" href="#success-metrics" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Baseline (Manual)</th>
+<th>Target (Automated)</th>
+<th>Success Criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Processing Time</td>
+<td>45 minutes</td>
+<td>&lt; 1 minute</td>
+<td>≥ 90% reduction</td>
+</tr>
+<tr>
+<td>Error Rate</td>
+<td>15%</td>
+<td>&lt; 2%</td>
+<td>≥ 80% elimination</td>
+</tr>
+<tr>
+<td>Cost per Process</td>
+<td>$18.75</td>
+<td>&lt; $1.00</td>
+<td>≥ 90% cost reduction</td>
+</tr>
+<tr>
+<td>Data Quality Score</td>
+<td>70%</td>
+<td>&gt; 95%</td>
+<td>Consistent high quality</td>
+</tr>
+<tr>
+<td>Alert Response Time</td>
+<td>24+ hours</td>
+<td>&lt; 5 minutes</td>
+<td>Real-time alerts</td>
+</tr>
+</tbody>
+</table>
+<h2 id="step-by-step-automated-workflow">Step-by-Step Automated Workflow<a class="headerlink" href="#step-by-step-automated-workflow" title="Permanent link">&para;</a></h2>
+<h3 id="phase-1-data-extraction">Phase 1: Data Extraction<a class="headerlink" href="#phase-1-data-extraction" title="Permanent link">&para;</a></h3>
+<p><strong>Automated Actions:</strong>
+1. <strong>File Detection</strong>: Monitor designated input directory for new inventory files
+2. <strong>Format Validation</strong>: Support CSV, Excel (.xlsx, .xls) formats
+3. <strong>Schema Validation</strong>: Verify presence of required columns:
+   - SKU (Stock Keeping Unit)
+   - Description (Item description)
+   - Location (Warehouse location)
+   - OnHandQty (Current quantity)
+   - ReorderPoint (Reorder threshold)
+   - UnitCost (Cost per unit)</p>
+<p><strong>Error Handling:</strong>
+- Invalid file formats → Alert and skip processing
+- Missing required columns → Generate error report
+- Corrupted files → Backup and alert administrators</p>
+<p><strong>Output:</strong> Validated raw inventory DataFrame</p>
+<h3 id="phase-2-data-processing">Phase 2: Data Processing<a class="headerlink" href="#phase-2-data-processing" title="Permanent link">&para;</a></h3>
+<p><strong>Data Cleaning:</strong>
+1. <strong>SKU Standardization</strong>: Convert to uppercase, trim whitespace
+2. <strong>Quantity Validation</strong>: Convert negative quantities to zero
+3. <strong>Description Cleanup</strong>: Handle empty descriptions with "Unknown Item"
+4. <strong>Location Normalization</strong>: Standardize location codes</p>
+<p><strong>Duplicate Handling:</strong>
+1. <strong>Detection</strong>: Identify duplicate SKU-Location combinations
+2. <strong>Resolution</strong>: Keep most recent record (configurable strategy)
+3. <strong>Logging</strong>: Record all duplicates found for audit</p>
+<p><strong>Business Logic Application:</strong>
+1. <strong>Reorder Calculation</strong>: <code>ReorderQty = max(0, ReorderPoint - OnHandQty)</code>
+2. <strong>Stock Status Assignment</strong>:
+   - <strong>Normal</strong>: OnHandQty ≥ ReorderPoint
+   - <strong>Low Stock</strong>: OnHandQty &lt; ReorderPoint AND &gt; CriticalThreshold
+   - <strong>Critical</strong>: OnHandQty ≤ CriticalThreshold AND &gt; 0
+   - <strong>Out of Stock</strong>: OnHandQty = 0</p>
+<p><strong>Quality Metrics:</strong>
+1. <strong>Data Completeness</strong>: Percentage of complete records
+2. <strong>Accuracy Score</strong>: Based on business rule violations
+3. <strong>Consistency Check</strong>: Cross-location inventory validation</p>
+<p><strong>Output:</strong> Processed inventory DataFrame with calculated fields</p>
+<h3 id="phase-3-data-validation">Phase 3: Data Validation<a class="headerlink" href="#phase-3-data-validation" title="Permanent link">&para;</a></h3>
+<p><strong>Business Rule Validation:</strong>
+1. <strong>Reasonable Reorder Points</strong>: Not exceeding 50% of historical maximum
+2. <strong>Unit Cost Validation</strong>: Within acceptable range ($0.01 - $10,000)
+3. <strong>Quantity Consistency</strong>: Cross-location stock level checks
+4. <strong>Historical Comparison</strong>: Flag unusual quantity changes</p>
+<p><strong>Violation Handling:</strong>
+1. <strong>Categorization</strong>: Critical, Warning, Informational
+2. <strong>Documentation</strong>: Detailed violation reports
+3. <strong>Escalation</strong>: Automatic alerts for critical violations</p>
+<p><strong>Output:</strong> Validated DataFrame and violation report</p>
+<h3 id="phase-4-update-and-output">Phase 4: Update and Output<a class="headerlink" href="#phase-4-update-and-output" title="Permanent link">&para;</a></h3>
+<p><strong>Multi-Format Output:</strong>
+1. <strong>CSV Export</strong>: Clean data for system integration
+2. <strong>Excel Report</strong>: Formatted with conditional formatting:
+   - Red highlighting for critical/out of stock items
+   - Yellow highlighting for low stock items
+   - Green highlighting for normal stock items
+3. <strong>JSON Export</strong>: API-ready format for external systems</p>
+<p><strong>Backup Management:</strong>
+1. <strong>Timestamped Backups</strong>: Automatic backup creation
+2. <strong>Retention Policy</strong>: 30-day backup retention
+3. <strong>Compression</strong>: Archive older backups to save space</p>
+<p><strong>API Integration:</strong>
+1. <strong>ERP Updates</strong>: Push processed data to enterprise systems
+2. <strong>Retry Logic</strong>: Handle temporary API failures
+3. <strong>Status Tracking</strong>: Log all API interactions</p>
+<p><strong>Output:</strong> Multiple format files and system updates</p>
+<h3 id="phase-5-alert-generation">Phase 5: Alert Generation<a class="headerlink" href="#phase-5-alert-generation" title="Permanent link">&para;</a></h3>
+<p><strong>Alert Categories:</strong>
+1. <strong>Critical Alerts</strong>: Out of stock items, critical stock levels
+2. <strong>Low Stock Alerts</strong>: Items below reorder point
+3. <strong>High-Value Alerts</strong>: Low stock items with high inventory value
+4. <strong>System Alerts</strong>: Processing errors, data quality issues</p>
+<p><strong>Notification Channels:</strong>
+1. <strong>Email Alerts</strong>: HTML-formatted reports with:
+   - Executive summary
+   - Detailed item listings
+   - Attached Excel reports
+   - Performance metrics
+2. <strong>Console Output</strong>: Real-time processing status
+3. <strong>Log Files</strong>: Comprehensive alert history</p>
+<p><strong>Alert Content:</strong>
+- <strong>Summary Statistics</strong>: Total items, value at risk, processing time
+- <strong>Item Details</strong>: SKU, description, location, quantities, status
+- <strong>Recommendations</strong>: Suggested reorder quantities and priorities
+- <strong>Trend Information</strong>: Historical comparison and patterns</p>
+<p><strong>Output:</strong> Multi-channel notifications and alert logs</p>
+<h3 id="phase-6-metrics-and-reporting">Phase 6: Metrics and Reporting<a class="headerlink" href="#phase-6-metrics-and-reporting" title="Permanent link">&para;</a></h3>
+<p><strong>Performance Metrics:</strong>
+1. <strong>Runtime Tracking</strong>: Processing time by stage
+2. <strong>Throughput Measurement</strong>: Records processed per second
+3. <strong>Error Rate Calculation</strong>: Success/failure ratios
+4. <strong>Cost Analysis</strong>: Processing cost vs. manual cost</p>
+<p><strong>Business Intelligence:</strong>
+1. <strong>Trend Analysis</strong>: Historical performance patterns
+2. <strong>ROI Calculation</strong>: Cost savings and efficiency gains
+3. <strong>Quality Scoring</strong>: Data quality improvement tracking
+4. <strong>Predictive Insights</strong>: Forecast future requirements</p>
+<p><strong>Reporting:</strong>
+1. <strong>Real-time Dashboards</strong>: Live performance monitoring
+2. <strong>Daily Reports</strong>: Processing summaries and exceptions
+3. <strong>Weekly Trends</strong>: Pattern analysis and recommendations
+4. <strong>Monthly KPIs</strong>: Executive-level performance metrics</p>
+<p><strong>Output:</strong> Comprehensive metrics and business intelligence reports</p>
+<h2 id="system-requirements">System Requirements<a class="headerlink" href="#system-requirements" title="Permanent link">&para;</a></h2>
+<h3 id="technical-requirements">Technical Requirements<a class="headerlink" href="#technical-requirements" title="Permanent link">&para;</a></h3>
+<p><strong>Hardware:</strong>
+- <strong>CPU</strong>: Minimum 4 cores, 2.5GHz
+- <strong>RAM</strong>: Minimum 8GB, recommended 16GB
+- <strong>Storage</strong>: 100GB available space for data and logs
+- <strong>Network</strong>: Reliable internet connection for email and API integration</p>
+<p><strong>Software:</strong>
+- <strong>Operating System</strong>: Windows 10+, macOS 10.15+, or Linux (Ubuntu 20.04+)
+- <strong>Python</strong>: Version 3.11 or higher
+- <strong>Dependencies</strong>: As specified in requirements.txt</p>
+<h3 id="environmental-requirements">Environmental Requirements<a class="headerlink" href="#environmental-requirements" title="Permanent link">&para;</a></h3>
+<p><strong>Development Environment:</strong>
+- <strong>IDE</strong>: VS Code with Python extension
+- <strong>Version Control</strong>: Git with GitHub integration
+- <strong>Testing</strong>: pytest framework for automated testing
+- <strong>Code Quality</strong>: Black formatter, Flake8 linter</p>
+<p><strong>Production Environment:</strong>
+- <strong>Deployment</strong>: Docker containerization recommended
+- <strong>Security</strong>: Encrypted credential storage (.env files)
+- <strong>Monitoring</strong>: Comprehensive logging and alerting
+- <strong>Backup</strong>: Automated data backup and recovery</p>
+<h3 id="integration-requirements">Integration Requirements<a class="headerlink" href="#integration-requirements" title="Permanent link">&para;</a></h3>
+<p><strong>Email System:</strong>
+- <strong>SMTP Server</strong>: Gmail, Outlook, or corporate email server
+- <strong>Authentication</strong>: App passwords or OAuth2
+- <strong>Recipients</strong>: Configurable distribution lists</p>
+<p><strong>File System:</strong>
+- <strong>Input Directory</strong>: Monitored folder for inventory files
+- <strong>Output Directory</strong>: Processed data and reports
+- <strong>Archive</strong>: Historical data retention</p>
+<p><strong>Optional Integrations:</strong>
+- <strong>ERP Systems</strong>: REST API connectivity
+- <strong>Database</strong>: PostgreSQL, MySQL, or SQL Server
+- <strong>Cloud Storage</strong>: AWS S3, Azure Blob, or Google Cloud Storage</p>
+<h2 id="risk-assessment-and-mitigations">Risk Assessment and Mitigations<a class="headerlink" href="#risk-assessment-and-mitigations" title="Permanent link">&para;</a></h2>
+<h3 id="technical-risks">Technical Risks<a class="headerlink" href="#technical-risks" title="Permanent link">&para;</a></h3>
+<p><strong>Risk 1: File Corruption or Format Changes</strong>
+- <strong>Likelihood</strong>: Medium
+- <strong>Impact</strong>: High
+- <strong>Mitigation</strong>: 
+  - Multiple format support (CSV, Excel)
+  - Comprehensive file validation
+  - Graceful error handling with detailed logging
+  - Automated backup before processing</p>
+<p><strong>Risk 2: Email System Failures</strong>
+- <strong>Likelihood</strong>: Low
+- <strong>Impact</strong>: Medium
+- <strong>Mitigation</strong>:
+  - Multiple SMTP server configuration
+  - Retry logic with exponential backoff
+  - Alternative notification channels (file output, logs)
+  - Email delivery confirmation tracking</p>
+<p><strong>Risk 3: Performance Degradation with Large Datasets</strong>
+- <strong>Likelihood</strong>: Medium
+- <strong>Impact</strong>: Medium
+- <strong>Mitigation</strong>:
+  - Optimized pandas operations
+  - Chunk processing for large files
+  - Memory usage monitoring
+  - Configurable processing limits</p>
+<h3 id="business-risks">Business Risks<a class="headerlink" href="#business-risks" title="Permanent link">&para;</a></h3>
+<p><strong>Risk 1: Resistance to Change</strong>
+- <strong>Likelihood</strong>: Medium
+- <strong>Impact</strong>: High
+- <strong>Mitigation</strong>:
+  - Comprehensive training program
+  - Parallel processing during transition
+  - Clear communication of benefits
+  - User feedback incorporation</p>
+<p><strong>Risk 2: Data Quality Issues</strong>
+- <strong>Likelihood</strong>: Low
+- <strong>Impact</strong>: High
+- <strong>Mitigation</strong>:
+  - Robust validation rules
+  - Data quality scoring
+  - Exception reporting
+  - Manual override capabilities</p>
+<p><strong>Risk 3: System Dependencies</strong>
+- <strong>Likelihood</strong>: Low
+- <strong>Impact</strong>: High
+- <strong>Mitigation</strong>:
+  - Minimal external dependencies
+  - Offline processing capability
+  - Comprehensive error handling
+  - Rollback procedures</p>
+<h3 id="operational-risks">Operational Risks<a class="headerlink" href="#operational-risks" title="Permanent link">&para;</a></h3>
+<p><strong>Risk 1: Insufficient Staff Training</strong>
+- <strong>Likelihood</strong>: Medium
+- <strong>Impact</strong>: Medium
+- <strong>Mitigation</strong>:
+  - Detailed documentation
+  - Video training materials
+  - Hands-on training sessions
+  - Support contact information</p>
+<p><strong>Risk 2: Infrastructure Failures</strong>
+- <strong>Likelihood</strong>: Low
+- <strong>Impact</strong>: High
+- <strong>Mitigation</strong>:
+  - Redundant processing capability
+  - Cloud deployment options
+  - Automated backup and recovery
+  - Disaster recovery procedures</p>
+<h2 id="implementation-timeline">Implementation Timeline<a class="headerlink" href="#implementation-timeline" title="Permanent link">&para;</a></h2>
+<h3 id="week-1-foundation-setup">Week 1: Foundation Setup<a class="headerlink" href="#week-1-foundation-setup" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Days 1-2</strong>: Repository setup, development environment configuration</li>
+<li><strong>Days 3-4</strong>: Core module development (extract, process)</li>
+<li><strong>Days 5-7</strong>: Initial testing and validation</li>
+</ul>
+<h3 id="week-2-feature-development">Week 2: Feature Development<a class="headerlink" href="#week-2-feature-development" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Days 8-10</strong>: Alert system and email integration</li>
+<li><strong>Days 11-12</strong>: Metrics and reporting functionality</li>
+<li><strong>Days 13-14</strong>: Integration testing and bug fixes</li>
+</ul>
+<h3 id="week-3-testing-and-documentation">Week 3: Testing and Documentation<a class="headerlink" href="#week-3-testing-and-documentation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Days 15-17</strong>: Comprehensive testing with synthetic data</li>
+<li><strong>Days 18-19</strong>: Documentation completion and review</li>
+<li><strong>Days 20-21</strong>: Final validation and deployment preparation</li>
+</ul>
+<h3 id="deployment-phase-week-4">Deployment Phase (Week 4)<a class="headerlink" href="#deployment-phase-week-4" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Days 22-23</strong>: Production environment setup</li>
+<li><strong>Days 24-25</strong>: User training and knowledge transfer</li>
+<li><strong>Days 26-28</strong>: Parallel processing and validation</li>
+</ul>
+<h2 id="maintenance-and-support">Maintenance and Support<a class="headerlink" href="#maintenance-and-support" title="Permanent link">&para;</a></h2>
+<h3 id="ongoing-maintenance">Ongoing Maintenance<a class="headerlink" href="#ongoing-maintenance" title="Permanent link">&para;</a></h3>
+<p><strong>Daily:</strong>
+- Monitor processing logs for errors
+- Verify alert delivery and accuracy
+- Check system resource utilization</p>
+<p><strong>Weekly:</strong>
+- Review performance metrics and trends
+- Analyze data quality reports
+- Update business rules as needed</p>
+<p><strong>Monthly:</strong>
+- Comprehensive system health check
+- User feedback collection and analysis
+- Performance optimization review</p>
+<h3 id="support-structure">Support Structure<a class="headerlink" href="#support-structure" title="Permanent link">&para;</a></h3>
+<p><strong>Level 1 Support</strong>: End-user training and basic troubleshooting
+<strong>Level 2 Support</strong>: Technical issues and configuration changes
+<strong>Level 3 Support</strong>: Development team for enhancements and major issues</p>
+<h3 id="continuous-improvement">Continuous Improvement<a class="headerlink" href="#continuous-improvement" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Regular performance review meetings</li>
+<li>User feedback incorporation</li>
+<li>Technology stack updates</li>
+<li>Feature enhancement planning</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Muhammad Hassan Naeem
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/your-username" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener" title="linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "toc.follow", "toc.integrate"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.50899def.min.js"></script>
+      
+        <script src="../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

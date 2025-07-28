@@ -1,0 +1,1694 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A comprehensive Robotic Process Automation system for inventory management with data extraction, processing, and analytics capabilities.">
+      
+      
+        <meta name="author" content="Muhammad Hassan Naeem">
+      
+      
+        <link rel="canonical" href="https://github.com/your-username/RPA-Automation-Week-3/PROJECT_OVERVIEW/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../ADVANCED_FEATURES/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Project Overview - RPA Inventory Management System</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#rpa-inventory-management-system-project-overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="RPA Inventory Management System" class="md-header__button md-logo" aria-label="RPA Inventory Management System" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RPA Inventory Management System
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Project Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/your-username/RPA-Automation-Week-3" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    RPA-Automation-Week-3
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Project Overview
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../ADVANCED_FEATURES/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Advanced Features
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../process_documentation/" class="md-tabs__link">
+          
+  
+  
+  Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../api/main/" class="md-tabs__link">
+          
+  
+  
+  API Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="RPA Inventory Management System" class="md-nav__button md-logo" aria-label="RPA Inventory Management System" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    RPA Inventory Management System
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/your-username/RPA-Automation-Week-3" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    RPA-Automation-Week-3
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Project Overview
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Overview
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Results
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Project Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#performance-metrics-achieved" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Metrics Achieved
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-execution-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Execution Summary
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ Architecture Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features-implemented" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Key Features Implemented
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Key Features Implemented">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-intelligent-data-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Intelligent Data Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-business-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Business Intelligence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-advanced-alerting-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Advanced Alerting System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-performance-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Performance Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-enterprise-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Enterprise Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#business-impact-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      📈 Business Impact Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📈 Business Impact Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-state-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current State Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automated-solution-benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automated Solution Benefits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roi-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      ROI Calculation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Technical Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Technical Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Technologies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-quality-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Quality Metrics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#academic-learning-outcomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎓 Academic Learning Outcomes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎓 Academic Learning Outcomes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technical-skills-developed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Skills Developed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#business-skills-applied" class="md-nav__link">
+    <span class="md-ellipsis">
+      Business Skills Applied
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpa-best-practices-demonstrated" class="md-nav__link">
+    <span class="md-ellipsis">
+      RPA Best Practices Demonstrated
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-output-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Sample Output Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Sample Output Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#processing-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processing Summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alert-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alert Summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-quality-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Quality Results
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assignment-requirements-fulfillment" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Assignment Requirements Fulfillment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Assignment Requirements Fulfillment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-deliverables-completed" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Required Deliverables Completed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technical-requirements-met" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Technical Requirements Met
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-targets-achieved" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Performance Targets Achieved
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏆 Project Highlights
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏆 Project Highlights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#innovation-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Innovation Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#professional-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Professional Standards
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#business-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Business Value
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔮 Future Enhancements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔮 Future Enhancements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 2 Roadmap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scalability-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scalability Considerations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ADVANCED_FEATURES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Features
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process_documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Process Documentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/main/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Main Application
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/extract/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Extraction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/update/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Update
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/alert/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Alert System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Metrics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/performance_monitor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Performance Monitor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Analytics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/config_manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuration Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="rpa-inventory-management-system-project-overview">RPA Inventory Management System - Project Overview<a class="headerlink" href="#rpa-inventory-management-system-project-overview" title="Permanent link">&para;</a></h1>
+<h2 id="project-summary">Project Summary<a class="headerlink" href="#project-summary" title="Permanent link">&para;</a></h2>
+<p><strong>Project Name</strong>: Code-First Automation Architecture for Manual Inventory Management<br />
+<strong>Student</strong>: Hassan Naeem<br />
+<strong>Course</strong>: RPA-Automation-Week-3<br />
+<strong>Institution</strong>: Concordia University<br />
+<strong>Date</strong>: July 2025  </p>
+<h2 id="project-results">Project Results<a class="headerlink" href="#project-results" title="Permanent link">&para;</a></h2>
+<h3 id="performance-metrics-achieved">Performance Metrics Achieved<a class="headerlink" href="#performance-metrics-achieved" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Baseline (Manual)</th>
+<th>Achieved (Automated)</th>
+<th>Improvement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Processing Time</strong></td>
+<td>45 minutes</td>
+<td>0.07 seconds</td>
+<td><strong>99.97% reduction</strong></td>
+</tr>
+<tr>
+<td><strong>Error Rate</strong></td>
+<td>15%</td>
+<td>&lt;0.5%</td>
+<td><strong>96.7% improvement</strong></td>
+</tr>
+<tr>
+<td><strong>Records Processed</strong></td>
+<td>500</td>
+<td>503</td>
+<td><strong>100% success rate</strong></td>
+</tr>
+<tr>
+<td><strong>Data Quality Score</strong></td>
+<td>70%</td>
+<td>97%+</td>
+<td><strong>38% improvement</strong></td>
+</tr>
+<tr>
+<td><strong>Cost per Process</strong></td>
+<td>$18.75</td>
+<td>$0.01</td>
+<td><strong>99.95% cost reduction</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="workflow-execution-summary">Workflow Execution Summary<a class="headerlink" href="#workflow-execution-summary" title="Permanent link">&para;</a></h3>
+<p>✅ <strong>Stage 1: Data Extraction</strong> - Successfully extracted 503 records from CSV<br />
+✅ <strong>Stage 2: Data Processing</strong> - Cleaned data, removed 1 duplicate, fixed 5 negative quantities<br />
+✅ <strong>Stage 3: Data Update</strong> - Generated 4 output formats (CSV, Excel, JSON, Report)<br />
+✅ <strong>Stage 4: Alert Generation</strong> - Identified 10 critical items, 58 low stock items<br />
+✅ <strong>Stage 5: Backup &amp; Logging</strong> - Created timestamped backups and comprehensive logs  </p>
+<h2 id="architecture-overview">🏗️ Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>📁 RPA-Automation-Week-3/
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── 📄 main.py                    # Main orchestrator with CLI interface
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── 📄 generate_fake_inventory.py # Synthetic data generator
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── 📄 requirements.txt           # Python dependencies
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├── 📄 config.json               # Configuration file
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>├── 📄 .env.example              # Environment template
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>├── 📄 README.md                 # Comprehensive documentation
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>├── 📁 src/                      # Core modules
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│   ├── 📄 extract.py            # Data extraction module
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│   ├── 📄 process.py            # Data processing and cleaning
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│   ├── 📄 update.py             # Data output and API integration
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│   ├── 📄 alert.py              # Alert and notification system
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│   └── 📄 metrics.py            # Performance tracking and KPIs
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>│
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>├── 📁 data/                     # Data files
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>│   ├── 📄 inventory_raw.csv     # Input data (synthetic)
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>│   └── 📁 processed/            # Output files
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>│       ├── 📄 inventory_processed.csv
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>│       ├── 📄 inventory_processed.xlsx
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>│       ├── 📄 inventory_processed.json
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>│       └── 📄 processing_report.json
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>│
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>├── 📁 logs/                     # System logs
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>│   ├── 📄 rpa_run.log          # Main application log
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>│   └── 📄 alerts.log           # Alert history
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>│
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>├── 📁 backups/                  # Automated backups
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>│   └── 📄 inventory_backup_*.csv
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>│
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>├── 📁 tests/                    # Unit tests
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>│   └── 📄 test_rpa_system.py
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>│
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>├── 📁 docs/                     # Documentation
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>│   └── 📄 process_documentation.md
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>│
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>└── 📁 .github/workflows/        # CI/CD pipeline
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>    └── 📄 ci.yml
+</span></code></pre></div>
+<h2 id="key-features-implemented">🚀 Key Features Implemented<a class="headerlink" href="#key-features-implemented" title="Permanent link">&para;</a></h2>
+<h3 id="1-intelligent-data-processing">1. <strong>Intelligent Data Processing</strong><a class="headerlink" href="#1-intelligent-data-processing" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Multi-format Support</strong>: CSV, Excel, JSON</li>
+<li><strong>Data Validation</strong>: Business rules and quality checks</li>
+<li><strong>Error Handling</strong>: Robust exception management</li>
+<li><strong>Duplicate Removal</strong>: Configurable deduplication strategies</li>
+</ul>
+<h3 id="2-business-intelligence">2. <strong>Business Intelligence</strong><a class="headerlink" href="#2-business-intelligence" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Stock Status Classification</strong>: Normal, Low Stock, Critical, Out of Stock</li>
+<li><strong>Reorder Calculations</strong>: Automated quantity recommendations</li>
+<li><strong>Violation Detection</strong>: 120 business rule violations identified</li>
+<li><strong>Quality Scoring</strong>: Automated data quality assessment</li>
+</ul>
+<h3 id="3-advanced-alerting-system">3. <strong>Advanced Alerting System</strong><a class="headerlink" href="#3-advanced-alerting-system" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Multi-channel Notifications</strong>: Email, console, logs</li>
+<li><strong>Priority Classification</strong>: Critical, low stock, high-value items</li>
+<li><strong>HTML Email Reports</strong>: Professional formatted alerts</li>
+<li><strong>Real-time Processing</strong>: Immediate alert generation</li>
+</ul>
+<h3 id="4-performance-monitoring">4. <strong>Performance Monitoring</strong><a class="headerlink" href="#4-performance-monitoring" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Comprehensive Metrics</strong>: Runtime, throughput, error rates</li>
+<li><strong>KPI Tracking</strong>: ROI, cost savings, efficiency gains</li>
+<li><strong>Trend Analysis</strong>: Historical performance tracking</li>
+<li><strong>Business Impact</strong>: Quantified improvements</li>
+</ul>
+<h3 id="5-enterprise-features">5. <strong>Enterprise Features</strong><a class="headerlink" href="#5-enterprise-features" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Configuration Management</strong>: Environment-based settings</li>
+<li><strong>API Integration</strong>: RESTful API support</li>
+<li><strong>Automated Backups</strong>: Timestamped data retention</li>
+<li><strong>Comprehensive Logging</strong>: Structured logging with multiple levels</li>
+</ul>
+<h2 id="business-impact-analysis">📈 Business Impact Analysis<a class="headerlink" href="#business-impact-analysis" title="Permanent link">&para;</a></h2>
+<h3 id="current-state-analysis">Current State Analysis<a class="headerlink" href="#current-state-analysis" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Manual Process</strong>: 45 minutes of manual work per day</li>
+<li><strong>Error-Prone</strong>: 15% error rate due to manual data entry</li>
+<li><strong>Limited Visibility</strong>: No real-time alerts or reporting</li>
+<li><strong>High Cost</strong>: $18.75 per processing cycle</li>
+</ul>
+<h3 id="automated-solution-benefits">Automated Solution Benefits<a class="headerlink" href="#automated-solution-benefits" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Speed</strong>: 99.97% faster processing (45 minutes → 0.07 seconds)</li>
+<li><strong>Accuracy</strong>: 96.7% error reduction (15% → &lt;0.5%)</li>
+<li><strong>Cost</strong>: 99.95% cost reduction ($18.75 → $0.01)</li>
+<li><strong>Visibility</strong>: Real-time alerts and comprehensive reporting</li>
+</ul>
+<h3 id="roi-calculation">ROI Calculation<a class="headerlink" href="#roi-calculation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Annual Savings</strong>: $6,843.75 (based on daily processing)</li>
+<li><strong>Implementation Cost</strong>: ~$500 (development time)</li>
+<li><strong>ROI</strong>: 1,268% first-year return on investment</li>
+<li><strong>Payback Period</strong>: Less than 1 month</li>
+</ul>
+<h2 id="technical-implementation">🔧 Technical Implementation<a class="headerlink" href="#technical-implementation" title="Permanent link">&para;</a></h2>
+<h3 id="core-technologies">Core Technologies<a class="headerlink" href="#core-technologies" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Python 3.12</strong>: Primary development language</li>
+<li><strong>Pandas</strong>: Data manipulation and analysis</li>
+<li><strong>OpenPyXL</strong>: Excel file generation with formatting</li>
+<li><strong>SMTP</strong>: Email alert delivery</li>
+<li><strong>JSON</strong>: Configuration and API integration</li>
+</ul>
+<h3 id="code-quality-metrics">Code Quality Metrics<a class="headerlink" href="#code-quality-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Lines of Code</strong>: ~2,500 lines across all modules</li>
+<li><strong>Test Coverage</strong>: Comprehensive unit tests implemented</li>
+<li><strong>Documentation</strong>: Extensive inline and external documentation</li>
+<li><strong>Error Handling</strong>: Robust exception management throughout</li>
+</ul>
+<h3 id="performance-characteristics">Performance Characteristics<a class="headerlink" href="#performance-characteristics" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Memory Usage</strong>: &lt;100MB for 500+ records</li>
+<li><strong>Processing Speed</strong>: ~7,000 records per second</li>
+<li><strong>Scalability</strong>: Designed for datasets up to 100,000 records</li>
+<li><strong>Reliability</strong>: 100% success rate in testing</li>
+</ul>
+<h2 id="academic-learning-outcomes">🎓 Academic Learning Outcomes<a class="headerlink" href="#academic-learning-outcomes" title="Permanent link">&para;</a></h2>
+<h3 id="technical-skills-developed">Technical Skills Developed<a class="headerlink" href="#technical-skills-developed" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Python Programming</strong>: Advanced pandas, data processing</li>
+<li><strong>System Architecture</strong>: Modular, scalable design patterns</li>
+<li><strong>Error Handling</strong>: Comprehensive exception management</li>
+<li><strong>Testing</strong>: Unit test development and validation</li>
+<li><strong>Documentation</strong>: Professional technical writing</li>
+</ol>
+<h3 id="business-skills-applied">Business Skills Applied<a class="headerlink" href="#business-skills-applied" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Process Analysis</strong>: Current state vs. future state mapping</li>
+<li><strong>Requirements Gathering</strong>: Stakeholder need identification</li>
+<li><strong>ROI Analysis</strong>: Business case development and justification</li>
+<li><strong>Change Management</strong>: Implementation and adoption strategies</li>
+<li><strong>Performance Measurement</strong>: KPI definition and tracking</li>
+</ol>
+<h3 id="rpa-best-practices-demonstrated">RPA Best Practices Demonstrated<a class="headerlink" href="#rpa-best-practices-demonstrated" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Code-First Approach</strong>: Professional-grade development</li>
+<li><strong>Version Control</strong>: Git-based change management</li>
+<li><strong>Configuration Management</strong>: Environment-based settings</li>
+<li><strong>Monitoring &amp; Alerting</strong>: Comprehensive observability</li>
+<li><strong>Documentation</strong>: Maintainable, professional documentation</li>
+</ol>
+<h2 id="sample-output-analysis">📊 Sample Output Analysis<a class="headerlink" href="#sample-output-analysis" title="Permanent link">&para;</a></h2>
+<h3 id="processing-summary">Processing Summary<a class="headerlink" href="#processing-summary" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>✅ Successfully processed 503 inventory records
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>✅ Fixed 5 negative quantity errors
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>✅ Removed 1 duplicate record
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>✅ Identified 68 items requiring reorder
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>✅ Generated 4 output formats
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>✅ Created automated backup
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>✅ Delivered real-time alerts
+</span></code></pre></div>
+<h3 id="alert-summary">Alert Summary<a class="headerlink" href="#alert-summary" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>🚨 Critical Items: 10 (require immediate attention)
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>⚠️  Low Stock Items: 58 (need reordering)
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>📦 Total Items Needing Reorder: 68
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>💰 Total Inventory Value: $3,182,026.33
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>⏱️  Processing Time: 0.07 seconds
+</span></code></pre></div>
+<h3 id="data-quality-results">Data Quality Results<a class="headerlink" href="#data-quality-results" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>📊 Data Quality Score: 97.6%
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>✨ Processing Accuracy: 99.5%
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>🔍 Business Rule Violations: 120 (documented)
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>📈 Improvement vs Manual: 96.7% error reduction
+</span></code></pre></div>
+<h2 id="assignment-requirements-fulfillment">🎯 Assignment Requirements Fulfillment<a class="headerlink" href="#assignment-requirements-fulfillment" title="Permanent link">&para;</a></h2>
+<h3 id="required-deliverables-completed">✅ Required Deliverables Completed<a class="headerlink" href="#required-deliverables-completed" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Process Capture</strong>: ✅ Documented in process_documentation.md</li>
+<li><strong>Solution Design</strong>: ✅ Modular architecture with clear separation</li>
+<li><strong>PDD (Process Design Document)</strong>: ✅ Comprehensive documentation</li>
+<li><strong>Python Workflow</strong>: ✅ Complete GitHub repository with all modules</li>
+<li><strong>KPIs &amp; Metrics</strong>: ✅ Comprehensive performance measurement</li>
+<li><strong>Synthetic Data</strong>: ✅ Realistic test data with edge cases</li>
+<li><strong>README.md</strong>: ✅ Professional project documentation</li>
+</ol>
+<h3 id="technical-requirements-met">✅ Technical Requirements Met<a class="headerlink" href="#technical-requirements-met" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>VS Code Development</strong>: ✅ Professional IDE-based development</li>
+<li><strong>Python 3.11+</strong>: ✅ Python 3.12 implementation</li>
+<li><strong>Git/GitHub</strong>: ✅ Version control with clear commit history</li>
+<li><strong>GitHub Copilot</strong>: ✅ AI-assisted development</li>
+<li><strong>Modular Architecture</strong>: ✅ src/ modules (extract, process, update, alert)</li>
+<li><strong>main.py Orchestrator</strong>: ✅ Command-line interface with argparse</li>
+<li><strong>requirements.txt</strong>: ✅ Complete dependency management</li>
+<li><strong>Environment Configuration</strong>: ✅ .env.example for secrets</li>
+</ol>
+<h3 id="performance-targets-achieved">✅ Performance Targets Achieved<a class="headerlink" href="#performance-targets-achieved" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>90%+ Runtime Reduction</strong>: ✅ 99.97% achieved</li>
+<li><strong>80%+ Error Elimination</strong>: ✅ 96.7% achieved</li>
+<li><strong>Comprehensive Metrics</strong>: ✅ KPI tracking and reporting</li>
+<li><strong>Success Measurement</strong>: ✅ Quantified business impact</li>
+</ol>
+<h2 id="project-highlights">🏆 Project Highlights<a class="headerlink" href="#project-highlights" title="Permanent link">&para;</a></h2>
+<h3 id="innovation-elements">Innovation Elements<a class="headerlink" href="#innovation-elements" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Synthetic Data Generation</strong>: Realistic test scenarios with edge cases</li>
+<li><strong>Excel Formatting</strong>: Conditional formatting for visual impact</li>
+<li><strong>Performance Metrics</strong>: Comprehensive KPI tracking and ROI analysis</li>
+<li><strong>Error Recovery</strong>: Graceful handling of various failure scenarios</li>
+<li><strong>Extensible Architecture</strong>: Easily adaptable for other use cases</li>
+</ul>
+<h3 id="professional-standards">Professional Standards<a class="headerlink" href="#professional-standards" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Code Quality</strong>: Clean, documented, maintainable code</li>
+<li><strong>Error Handling</strong>: Comprehensive exception management</li>
+<li><strong>Security</strong>: Environment-based credential management</li>
+<li><strong>Scalability</strong>: Designed for enterprise-scale deployment</li>
+<li><strong>Monitoring</strong>: Comprehensive logging and alerting</li>
+</ul>
+<h3 id="business-value">Business Value<a class="headerlink" href="#business-value" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Immediate Impact</strong>: 99.97% time savings</li>
+<li><strong>Cost Reduction</strong>: 99.95% cost savings</li>
+<li><strong>Quality Improvement</strong>: 96.7% error reduction</li>
+<li><strong>Operational Excellence</strong>: Real-time monitoring and alerting</li>
+<li><strong>Strategic Advantage</strong>: Scalable automation platform</li>
+</ul>
+<h2 id="future-enhancements">🔮 Future Enhancements<a class="headerlink" href="#future-enhancements" title="Permanent link">&para;</a></h2>
+<h3 id="phase-2-roadmap">Phase 2 Roadmap<a class="headerlink" href="#phase-2-roadmap" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Machine Learning</strong>: Predictive analytics for demand forecasting</li>
+<li><strong>Web Dashboard</strong>: Real-time monitoring interface</li>
+<li><strong>Mobile Alerts</strong>: SMS and push notifications</li>
+<li><strong>API Gateway</strong>: RESTful service for external integration</li>
+<li><strong>Cloud Deployment</strong>: Containerized production deployment</li>
+</ol>
+<h3 id="scalability-considerations">Scalability Considerations<a class="headerlink" href="#scalability-considerations" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Database Integration</strong>: PostgreSQL/MySQL support</li>
+<li><strong>Microservices</strong>: Service-oriented architecture</li>
+<li><strong>Queue Processing</strong>: Asynchronous processing for large datasets</li>
+<li><strong>Multi-tenant</strong>: Support for multiple organizations</li>
+<li><strong>Global Deployment</strong>: Multi-region availability</li>
+</ul>
+<h2 id="conclusion">📝 Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>This RPA Inventory Management System successfully demonstrates the power of code-first automation architecture. By replacing manual Excel-based processes with intelligent Python automation, we achieved:</p>
+<ul>
+<li><strong>99.97% time reduction</strong> (45 minutes → 0.07 seconds)</li>
+<li><strong>96.7% error elimination</strong> (15% → &lt;0.5% error rate)</li>
+<li><strong>99.95% cost reduction</strong> ($18.75 → $0.01 per process)</li>
+<li><strong>Complete automation</strong> of the inventory management workflow</li>
+</ul>
+<p>The solution provides immediate business value while establishing a foundation for future automation initiatives. The modular, scalable architecture ensures long-term maintainability and extensibility.</p>
+<p><strong>This project represents a successful transformation from manual, error-prone processes to intelligent, automated solutions that deliver measurable business value.</strong></p>
+<hr />
+<p><em>Submitted by Hassan Naeem for RPA-Automation-Week-3, Concordia University, July 2025</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Muhammad Hassan Naeem
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/your-username" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener" title="linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "toc.follow", "toc.integrate"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.50899def.min.js"></script>
+      
+        <script src="../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>
